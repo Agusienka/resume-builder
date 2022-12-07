@@ -56,7 +56,7 @@ function Register() {
         lastName,
         email,
         password,
-        phone,
+        phone
       }
 
       dispatch(register(userData))
