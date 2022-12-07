@@ -32,7 +32,7 @@ const registerUser = asyncHandler(async (req, res) => {
     lastName,
     email,
     password: hashedPassword,
-    phone
+    phone,
   })
 
   if (user) {
