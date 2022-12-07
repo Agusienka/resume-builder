@@ -15,6 +15,9 @@ app.use(express.urlencoded({extended: false}))
 app.use('/api/goals', require('./routes/goalRoutes'))
 app.use('/api/users', require('./routes/userRoutes'))
 
+//serve  front end
+// if(process.env.)
+
 app.use(errorHandler)
 
 app.listen(port, () => console.log(`Yo Devs, I am listening here on ${port}!`));
