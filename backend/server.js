@@ -1,3 +1,4 @@
+const path = require('path')
 const express = require("express");
 const colors =  require('colors')
 const dotenv = require("dotenv").config();
@@ -16,7 +17,7 @@ app.use('/api/goals', require('./routes/goalRoutes'))
 app.use('/api/users', require('./routes/userRoutes'))
 
 //serve  front end
-// if(process.env.)
+if(process.env.NODE_ENV ==  'production')
 
 app.use(errorHandler)
 
