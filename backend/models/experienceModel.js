@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 /* EducationSchema will correspond to a collection in your MongoDB database. */
-const ExperienceSchema = new mongoose.Schema(
+const experienceSchema = mongoose.Schema(
   {
     resume: {
       type: mongoose.Schema.Types.ObjectId,
@@ -22,8 +22,15 @@ const ExperienceSchema = new mongoose.Schema(
       required: [true, "Please provide company name "],
     },
     location: {
-        type: String,
-        required: [true, "Please enter location of your educational institution."],
+      type: String,
+      required: [
+        true,
+        "Please enter location of your educational institution.",
+      ],
+    },
+    jobDescription: {
+      type: String,
+      required: [true, "Please provide brief job description"],
     },
     startedAt: {
       type: Date,
@@ -36,17 +43,16 @@ const ExperienceSchema = new mongoose.Schema(
   },
   {
     timestamps: true,
-  },
+  }
 );
 
 // Returns a date in 'yyyy-MM-dd' format
-experienceSchema.methods.formatDate = function(dateProperty) {
-    const newDate = new Date(this[dateProperty]);
-    let formattedDate = `${ newDate.getFullYear() }-`;
-        formattedDate += `${ `0${ newDate.getMonth() + 1 }`.slice(-2) }-`;  // for double digit month
-        // formattedDate += `${ `0${ newDate.getDate() }`.slice(-2) }`;        // for double digit day
-    return formattedDate;
-}
+experienceSchema.methods.formatDate = function (dateProperty) {
+  const newDate = new Date(this[dateProperty]);
+  let formattedDate = `${newDate.getFullYear()}-`;
+  formattedDate += `${`0${newDate.getMonth() + 1}`.slice(-2)}-`; // for double digit month
+  // formattedDate += `${ `0${ newDate.getDate() }`.slice(-2) }`;        // for double digit day
+  return formattedDate;
+};
 
-
-module.exports = mongoose.model("Experience", ExperienceSchema);
+module.exports = mongoose.model("Experience", experienceSchema);

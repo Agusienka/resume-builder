@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 /* EducationSchema will correspond to a collection in your MongoDB database. */
-const EducationSchema = mongoose.Schema(
+const educationSchema = mongoose.Schema(
   {
     resume: {
       type: mongoose.Schema.Types.ObjectId,
@@ -37,7 +37,6 @@ const EducationSchema = mongoose.Schema(
       type: String,
       required: [true, 'Please specify the end date of your experience.'],
     },
-   
   },
   {
     timestamps: true,
@@ -52,4 +51,4 @@ educationSchema.methods.formatDate = function(dateProperty) {
     return formattedDate;
 }
 
-module.exports = mongoose.model('Education', EducationSchema);
+module.exports = mongoose.model('Education', educationSchema);
