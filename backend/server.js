@@ -14,7 +14,14 @@ app.use(express.urlencoded({extended: false}))
 
 app.use('/api/goals', require('./routes/goalRoutes'))
 app.use('/api/users', require('./routes/userRoutes'))
+
 app.use('/api/education', require('./routes/educationRoutes'))
+
+// app.use('/api/experience', require('./routes/experienceRoutes'))
+// app.use('/api/extras', require('./routes/extrasRoutes'))
+// app.use('/api/personal', require('./routes/personalRoutes'))
+// app.use('/api/resume', require('./routes/resumeRoutes'))
+
 
 app.use(errorHandler)
 

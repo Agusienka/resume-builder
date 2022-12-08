@@ -7,4 +7,5 @@ router.route('/').get(protect, getEducation).post(protect, setEducation)
 
 router.route('/:id').put(protect, updateEducation).delete(protect, deleteEducation)
 
+
 module.exports = router

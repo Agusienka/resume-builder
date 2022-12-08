@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose')
 
 /* EducationSchema will correspond to a collection in your MongoDB database. */
 const educationSchema = mongoose.Schema(
@@ -6,7 +6,7 @@ const educationSchema = mongoose.Schema(
     resume: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Resume',
-      required: true,
+      required: false,
     },
     user: {
       type: mongoose.Schema.Types.ObjectId,
@@ -40,7 +40,7 @@ const educationSchema = mongoose.Schema(
   },
   {
     timestamps: true,
-  },
+  }
 );
 
 educationSchema.methods.formatDate = function(dateProperty) {
