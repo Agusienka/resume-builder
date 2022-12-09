@@ -5,7 +5,7 @@ const personalSchema = mongoose.Schema(
     resume: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Resume",
-      required: true,
+      required: false,
     },
     user: {
       type: mongoose.Schema.Types.ObjectId,
@@ -72,10 +72,10 @@ const personalSchema = mongoose.Schema(
   }
 );
 
-contactSchema.path("linkedIn", "gitHub", "youTube", "facebook", "instagram", "twitter").validate((val) => {
-  urlRegex =
-    /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-/]))?/;
-  return urlRegex.test(val);
-}, "Invalid URL.");
+// personalSchema.path("linkedIn", "gitHub", "youTube", "facebook", "instagram", "twitter").validate((val) => {
+//   urlRegex =
+//     /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-/]))?/;
+//   return urlRegex.test(val);
+// }, "Invalid URL.");
 
 module.exports = mongoose.model("Personal", personalSchema);
