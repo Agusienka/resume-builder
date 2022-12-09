@@ -6,7 +6,7 @@ const User = require("../models/userModel");
 // @desc    Get/read/see experience
 // @route   GET /api/experience
 // @access  Private
-const getExperience = asyncHandler(async (req, res) => {
+const getExperiences = asyncHandler(async (req, res) => {
   const experiences = await Experience.find({ user: req.user.id });
 
   res.status(200).json(experiences);
@@ -95,7 +95,7 @@ const deleteExperience = asyncHandler(async (req, res) => {
 });
 
 module.exports = {
-  getExperience,
+  getExperiences,
   setExperience,
   updateExperience,
   deleteExperience,

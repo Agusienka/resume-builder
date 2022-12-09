@@ -6,7 +6,7 @@ const User = require("../models/userModel");
 // @desc    Get/read/see extras
 // @route   GET /api/extras
 // @access  Private
-const getExtra = asyncHandler(async (req, res) => {
+const getExtras = asyncHandler(async (req, res) => {
   const extras = await Extra.find({ user: req.user.id });
 
   res.status(200).json(extras);
@@ -92,7 +92,7 @@ const deleteExtra = asyncHandler(async (req, res) => {
 });
 
 module.exports = {
-  getExtra,
+  getExtras,
   setExtra,
   updateExtra,
   deleteExtra,
