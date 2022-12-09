@@ -1,9 +1,9 @@
 const express = require('express')
 const router = express.Router()
-const {getEducation, setEducation, updateEducation, deleteEducation} = require('../controllers/educationController')
+const {getEducations, setEducation, updateEducation, deleteEducation} = require('../controllers/educationController')
 const{protect} = require('../middleware/authMiddleware')
 
-router.route('/').get(protect, getEducation).post(protect, setEducation)
+router.route('/').get(protect, getEducations).post(protect, setEducation)
 
 router.route('/:id').put(protect, updateEducation).delete(protect, deleteEducation)
 

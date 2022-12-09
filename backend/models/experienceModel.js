@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require('mongoose')
 
 /* EducationSchema will correspond to a collection in your MongoDB database. */
 const experienceSchema = mongoose.Schema(
@@ -6,7 +6,7 @@ const experienceSchema = mongoose.Schema(
     resume: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Resume",
-      required: true,
+      required: false,
     },
     user: {
       type: mongoose.Schema.Types.ObjectId,
@@ -33,11 +33,11 @@ const experienceSchema = mongoose.Schema(
       required: [true, "Please provide brief job description"],
     },
     startedAt: {
-      type: Date,
+      type: String,
       required: [true, "Start of employment (month and a year)."],
     },
     endedAt: {
-      type: Date,
+      type: String,
       required: [true, "End of employment (month and a year or Present)."],
     },
   },
@@ -46,13 +46,6 @@ const experienceSchema = mongoose.Schema(
   }
 );
 
-// Returns a date in 'yyyy-MM-dd' format
-experienceSchema.methods.formatDate = function (dateProperty) {
-  const newDate = new Date(this[dateProperty]);
-  let formattedDate = `${newDate.getFullYear()}-`;
-  formattedDate += `${`0${newDate.getMonth() + 1}`.slice(-2)}-`; // for double digit month
-  // formattedDate += `${ `0${ newDate.getDate() }`.slice(-2) }`;        // for double digit day
-  return formattedDate;
-};
+
 
 module.exports = mongoose.model("Experience", experienceSchema);
