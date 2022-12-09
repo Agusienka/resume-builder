@@ -33,6 +33,7 @@ const setExperience = asyncHandler(async (req, res) => {
   });
 
   res.status(200).json(experience);
+
 });
 
 // @desc    Update experience
