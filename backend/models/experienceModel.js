@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require('mongoose')
 
 /* EducationSchema will correspond to a collection in your MongoDB database. */
 const experienceSchema = mongoose.Schema(
@@ -33,11 +33,11 @@ const experienceSchema = mongoose.Schema(
       required: [true, "Please provide brief job description"],
     },
     startedAt: {
-      type: Date,
+      type: String,
       required: [true, "Start of employment (month and a year)."],
     },
     endedAt: {
-      type: Date,
+      type: String,
       required: [true, "End of employment (month and a year or Present)."],
     },
   },

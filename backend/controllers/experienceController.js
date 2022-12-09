@@ -1,6 +1,6 @@
 const asyncHandler = require("express-async-handler");
 
-const Experience = require("../models/educationModel");
+const Experience = require("../models/experienceModel");
 const User = require("../models/userModel");
 
 // @desc    Get/read/see experience
