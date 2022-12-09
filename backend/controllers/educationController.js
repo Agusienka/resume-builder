@@ -35,8 +35,8 @@ const setEducation = asyncHandler(async (req, res) => {
   res.status(200).json(education);
 });
 
-// @desc    Update goal
-// @route   PUT /api/goals/:id
+// @desc    Update education
+// @route   PUT /api/education/:id
 // @access  Private
 const updateEducation = asyncHandler(async (req, res) => {
   const education = await Education.findById(req.params.id);

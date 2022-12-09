@@ -6,7 +6,7 @@ const experienceSchema = mongoose.Schema(
     resume: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Resume",
-      required: true,
+      required: false,
     },
     user: {
       type: mongoose.Schema.Types.ObjectId,
