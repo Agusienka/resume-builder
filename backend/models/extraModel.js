@@ -1,12 +1,12 @@
-import mongoose from "mongoose";
+const mongoose = require('mongoose')
 
 /* EducationSchema will correspond to a collection in your MongoDB database. */
-const extrasSchema =  mongoose.Schema(
+const extraSchema =  mongoose.Schema(
   {
     resume: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Resume",
-      required: true,
+      required: false,
     },
     user: {
       type: mongoose.Schema.Types.ObjectId,
@@ -32,4 +32,4 @@ const extrasSchema =  mongoose.Schema(
 );
 
 
-module.exports = mongoose.model("Extras", extrasSchema);
+module.exports = mongoose.model("Extra", extraSchema);

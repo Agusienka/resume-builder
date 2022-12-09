@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose')
 
 /* ResumeSchema will correspond to a collection in your MongoDB database. */
 const ResumeSchema = mongoose.Schema(
