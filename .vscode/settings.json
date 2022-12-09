@@ -12,5 +12,6 @@
   },
   "workbench.colorCustomizations": {
     "[Visual Studio Dark]": {}
-  }
+  },
+  "cSpell.words": ["reduxjs", "toastify"]
 }
