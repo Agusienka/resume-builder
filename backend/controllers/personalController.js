@@ -6,7 +6,7 @@ const User = require("../models/userModel");
 // @desc    Get/read/see personal info
 // @route   GET /api/personal
 // @access  Private
-const getPersonal = asyncHandler(async (req, res) => {
+const getPersonals = asyncHandler(async (req, res) => {
   const personals = await Extra.find({ user: req.user.id });
 
   res.status(200).json(personals);
@@ -93,7 +93,7 @@ const deletePersonal = asyncHandler(async (req, res) => {
 });
 
 module.exports = {
-  getPersonal,
+  getPersonals,
   setPersonal,
   updatePersonal,
   deletePersonal,

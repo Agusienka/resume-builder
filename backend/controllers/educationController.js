@@ -6,7 +6,7 @@ const User = require("../models/userModel");
 // @desc    Get/read/see education
 // @route   GET /api/education
 // @access  Private
-const getEducation = asyncHandler(async (req, res) => {
+const getEducations = asyncHandler(async (req, res) => {
   const educations = await Education.find({ user: req.user.id });
 
   res.status(200).json(educations);
@@ -94,7 +94,7 @@ const deleteEducation = asyncHandler(async (req, res) => {
 });
 
 module.exports = {
-  getEducation,
+  getEducations,
   setEducation,
   updateEducation,
   deleteEducation,
