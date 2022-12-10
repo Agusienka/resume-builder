@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import GoalForm from '../components/GoalForm'
 import GoalItem from '../components/GoalItem'
@@ -39,7 +39,15 @@ function Dashboard() {
     <>
       <section className='heading'>
         <h1>Welcome {user && user.firstName}</h1>
+        <div className='form-group'>
+        
+            <button type='submit' className='btn btn-block'>
+            <Link to='/education'>Click here to start creating your resume</Link>
+              
+            </button>
+        </div>
         <p>Goals Dashboard</p>
+
       </section>
 
       <GoalForm />
