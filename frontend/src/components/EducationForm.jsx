@@ -58,6 +58,10 @@ const onSubmit = (e) => {
   }
   dispatch(createEducation(educationData))
   setFormData('')
+
+  return () => {
+    dispatch(reset())
+  }
 }
 if (isLoading) {
   return <Spinner />

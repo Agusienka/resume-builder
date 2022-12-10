@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 /* ResumeSchema will correspond to a collection in your MongoDB database. */
-const ResumeSchema = mongoose.Schema(
+const ResumeSchema = new mongoose.Schema(
   {
     title: {
       type: String,
