@@ -9,6 +9,7 @@
 body {
   font-family: 'Poppins', sans-serif;
   height: 100vh;
+  background: url('../src/images/photo-1517971071642-34a2d3ecc9cd.avif');
 }
 
 a {
@@ -50,6 +51,7 @@ h3 {
   padding: 20px 0;
   border-bottom: 1px solid #e6e6e6;
   margin-bottom: 60px;
+  background-color: #505966;
 }
 
 .header ul {
@@ -68,7 +70,8 @@ h3 {
 }
 
 .header ul li a:hover {
-  color: #777;
+  color: rgb(22, 21, 21);
+
 }
 
 .header ul li a svg {
@@ -83,7 +86,7 @@ h3 {
 }
 
 .heading p {
-  color: #828282;
+  color: #996363;
 }
 
 .goals {
