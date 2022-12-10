@@ -1,21 +1,21 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import goalService from './goalService'
+import experienceService from './experienceService'
 
 const initialState = {
-  goals: [],
+  experiences: [],
   isError: false,
   isSuccess: false,
   isLoading: false,
   message: '',
 }
 
-// Create new goal
-export const createGoal = createAsyncThunk(
-  'goals/create',
-  async (goalData, thunkAPI) => {
+// Create new experience data
+export const createExperience = createAsyncThunk(
+  'experiences/create',
+  async (experienceData, thunkAPI) => {
     try {
       const token = thunkAPI.getState().auth.user.token
-      return await goalService.createGoal(goalData, token)
+      return await experienceService.createExperience(experienceData, token)
     } catch (error) {
       const message =
         (error.response &&
@@ -28,13 +28,13 @@ export const createGoal = createAsyncThunk(
   }
 )
 
-// Get user goals
-export const getGoals = createAsyncThunk(
-  'goals/getAll',
+// Get user experience
+export const getExperiences = createAsyncThunk(
+  'experiences/getAll',
   async (_, thunkAPI) => {
     try {
       const token = thunkAPI.getState().auth.user.token
-      return await goalService.getGoals(token)
+      return await experienceService.getExperiences(token)
     } catch (error) {
       const message =
         (error.response &&
@@ -47,13 +47,13 @@ export const getGoals = createAsyncThunk(
   }
 )
 
-//update user goals
-export const updateGoal = createAsyncThunk(
-  'goals/update',
+//update user experience
+export const updateExperience = createAsyncThunk(
+  'experiences/update',
   async (id, thunkAPI) => {
     try {
       const token = thunkAPI.getState().auth.user.token
-      return await goalService.updateGoal(id, token)
+      return await experienceService.updateExperience(id, token)
     } catch (error) {
       const message =
         (error.response &&
@@ -66,13 +66,13 @@ export const updateGoal = createAsyncThunk(
   }
 )
 
-// Delete user goal
-export const deleteGoal = createAsyncThunk(
-  'goals/delete',
+// Delete user experience
+export const deleteExperience = createAsyncThunk(
+  'experiences/delete',
   async (id, thunkAPI) => {
     try {
       const token = thunkAPI.getState().auth.user.token
-      return await goalService.deleteGoal(id, token)
+      return await experienceService.deleteExperience(id, token)
     } catch (error) {
       const message =
         (error.response &&
@@ -85,67 +85,74 @@ export const deleteGoal = createAsyncThunk(
   }
 )
 
-export const goalSlice = createSlice({
-  name: 'goal',
+export const educationSlice = createSlice({
+  name: 'experience',
   initialState,
   reducers: {
     reset: (state) => initialState,
   },
   extraReducers: (builder) => {
     builder
-      .addCase(createGoal.pending, (state) => {
+
+    // Reducer cases for creating experiences. Goes through possible states and actions
+      .addCase(createExperience.pending, (state) => {
         state.isLoading = true
       })
-      .addCase(createGoal.fulfilled, (state, action) => {
+      .addCase(createExperience.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
-        state.goals.push(action.payload)
+        state.educations.push(action.payload)
       })
-      .addCase(createGoal.rejected, (state, action) => {
+      .addCase(createExperience.rejected, (state, action) => {
         state.isLoading = false
         state.isError = true
         state.message = action.payload
       })
-      .addCase(getGoals.pending, (state) => {
+    
+    // Reducer cases for getting-retrieving experiences. Goes through possible states and actions
+      .addCase(getExperiences.pending, (state) => {
         state.isLoading = true
       })
-      .addCase(getGoals.fulfilled, (state, action) => {
+      .addCase(getExperiences.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
-        state.goals = action.payload
+        state.educations = action.payload
       })
-      .addCase(getGoals.rejected, (state, action) => {
-        state.isLoading = false
-        state.isError = true
-        state.message = action.payload
-      })
-      .addCase(updateGoal.pending, (state) => {
-        state.isLoading = true
-      })
-      .addCase(updateGoal.fulfilled, (state, action) => {
-        state.isLoading = true
-        state.isSuccess = true
-        state.educations = state.educations.filter(
-          (goal) => goal._id === action.payload.id
-        )
-      })
-      .addCase(updateGoal.rejected, (state, action) => {
+      .addCase(getExperiences.rejected, (state, action) => {
         state.isLoading = false
         state.isError = true
         state.message = action.payload
       })
 
-      .addCase(deleteGoal.pending, (state) => {
+ // Reducer cases for updating experiences. Goes through possible states and actions
+      .addCase(updateExperience.pending, (state) => {
         state.isLoading = true
       })
-      .addCase(deleteGoal.fulfilled, (state, action) => {
-        state.isLoading = false
+      .addCase(updateExperience.fulfilled, (state, action) => {
+        state.isLoading = true
         state.isSuccess = true
-        state.goals = state.goals.filter(
-          (goal) => goal._id !== action.payload.id
+        state.experiences = state.experiences.filter(
+          (experience) => experience._id === action.payload.id
         )
       })
-      .addCase(deleteGoal.rejected, (state, action) => {
+      .addCase(updateExperience.rejected, (state, action) => {
+        state.isLoading = false
+        state.isError = true
+        state.message = action.payload
+      })
+
+ // Reducer cases for deleting experiences. Goes through possible states and actions
+      .addCase(deleteExperience.pending, (state) => {
+        state.isLoading = true
+      })
+      .addCase(deleteExperience.fulfilled, (state, action) => {
+        state.isLoading = false
+        state.isSuccess = true
+        state.Experiences = state.experiences.filter(
+          (experience) => experience._id !== action.payload.id
+        )
+      })
+      .addCase(deleteExperience.rejected, (state, action) => {
         state.isLoading = false
         state.isError = true
         state.message = action.payload
@@ -153,5 +160,5 @@ export const goalSlice = createSlice({
   },
 })
 
-export const { reset } = goalSlice.actions
-export default goalSlice.reducer
+export const { reset } = experienceSlice.actions
+export default experienceSlice.reducer

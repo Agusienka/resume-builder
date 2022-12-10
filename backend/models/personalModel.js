@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const personalSchema = mongoose.Schema(
+const personalSchema = new mongoose.Schema(
   {
     resume: {
       type: mongoose.Schema.Types.ObjectId,
