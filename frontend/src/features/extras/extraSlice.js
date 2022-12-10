@@ -1,21 +1,21 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import experienceService from './experienceService'
+import extraService from './extraService'
 
 const initialState = {
-  experiences: [],
+  extras: [],
   isError: false,
   isSuccess: false,
   isLoading: false,
   message: '',
 }
 
-// Create new experience data
-export const createExperience = createAsyncThunk(
-  'experiences/create',
-  async (experienceData, thunkAPI) => {
+// Create new extra
+export const createextra = createAsyncThunk(
+  'extras/create',
+  async (extraData, thunkAPI) => {
     try {
       const token = thunkAPI.getState().auth.user.token
-      return await experienceService.createExperience(experienceData, token)
+      return await extraService.createextra(extraData, token)
     } catch (error) {
       const message =
         (error.response &&
@@ -28,13 +28,13 @@ export const createExperience = createAsyncThunk(
   }
 )
 
-// Get user experience
-export const getExperiences = createAsyncThunk(
-  'experiences/getAll',
+// Get user extra
+export const getextras = createAsyncThunk(
+  'extras/getAll',
   async (_, thunkAPI) => {
     try {
       const token = thunkAPI.getState().auth.user.token
-      return await experienceService.getExperiences(token)
+      return await extraService.getextras(token)
     } catch (error) {
       const message =
         (error.response &&
@@ -47,13 +47,13 @@ export const getExperiences = createAsyncThunk(
   }
 )
 
-//update user experience
-export const updateExperience = createAsyncThunk(
-  'experiences/update',
+//update user extra
+export const updateextra = createAsyncThunk(
+  'extras/update',
   async (id, thunkAPI) => {
     try {
       const token = thunkAPI.getState().auth.user.token
-      return await experienceService.updateExperience(id, token)
+      return await extraService.updateextra(id, token)
     } catch (error) {
       const message =
         (error.response &&
@@ -66,13 +66,13 @@ export const updateExperience = createAsyncThunk(
   }
 )
 
-// Delete user experience
-export const deleteExperience = createAsyncThunk(
-  'experiences/delete',
+// Delete user extra
+export const deleteextra = createAsyncThunk(
+  'extras/delete',
   async (id, thunkAPI) => {
     try {
       const token = thunkAPI.getState().auth.user.token
-      return await experienceService.deleteExperience(id, token)
+      return await extraService.deleteextra(id, token)
     } catch (error) {
       const message =
         (error.response &&
@@ -85,74 +85,67 @@ export const deleteExperience = createAsyncThunk(
   }
 )
 
-export const experienceSlice = createSlice({
-  name: 'experience',
+export const extraSlice = createSlice({
+  name: 'extra',
   initialState,
   reducers: {
     reset: (state) => initialState,
   },
   extraReducers: (builder) => {
     builder
-
-    // Reducer cases for creating experiences. Goes through possible states and actions
-      .addCase(createExperience.pending, (state) => {
+      .addCase(createextra.pending, (state) => {
         state.isLoading = true
       })
-      .addCase(createExperience.fulfilled, (state, action) => {
+      .addCase(createextra.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
-        state.educations.push(action.payload)
+        state.extras.push(action.payload)
       })
-      .addCase(createExperience.rejected, (state, action) => {
+      .addCase(createextra.rejected, (state, action) => {
         state.isLoading = false
         state.isError = true
         state.message = action.payload
       })
-    
-    // Reducer cases for getting-retrieving experiences. Goes through possible states and actions
-      .addCase(getExperiences.pending, (state) => {
+      .addCase(getextras.pending, (state) => {
         state.isLoading = true
       })
-      .addCase(getExperiences.fulfilled, (state, action) => {
+      .addCase(getextras.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
-        state.educations = action.payload
+        state.extras = action.payload
       })
-      .addCase(getExperiences.rejected, (state, action) => {
+      .addCase(getextras.rejected, (state, action) => {
         state.isLoading = false
         state.isError = true
         state.message = action.payload
       })
-
- // Reducer cases for updating experiences. Goes through possible states and actions
-      .addCase(updateExperience.pending, (state) => {
+      .addCase(updateextra.pending, (state) => {
         state.isLoading = true
       })
-      .addCase(updateExperience.fulfilled, (state, action) => {
+      .addCase(updateextra.fulfilled, (state, action) => {
         state.isLoading = true
         state.isSuccess = true
-        state.experiences = state.experiences.filter(
-          (experience) => experience._id === action.payload.id
+        state.extras = state.extras.filter(
+          (extra) => extra._id === action.payload.id
         )
       })
-      .addCase(updateExperience.rejected, (state, action) => {
+      .addCase(updateextra.rejected, (state, action) => {
         state.isLoading = false
         state.isError = true
         state.message = action.payload
       })
 
- // Reducer cases for deleting experiences. Goes through possible states and actions
-      .addCase(deleteExperience.pending, (state) => {
+      .addCase(deleteextra.pending, (state) => {
         state.isLoading = true
       })
-      .addCase(deleteExperience.fulfilled, (state, action) => {
+      .addCase(deleteextra.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
-        state.Experiences = state.experiences.filter(
-          (experience) => experience._id !== action.payload.id
+        state.extras = state.extras.filter(
+          (extra) => extra._id !== action.payload.id
         )
       })
-      .addCase(deleteExperience.rejected, (state, action) => {
+      .addCase(deleteextra.rejected, (state, action) => {
         state.isLoading = false
         state.isError = true
         state.message = action.payload
@@ -160,5 +153,5 @@ export const experienceSlice = createSlice({
   },
 })
 
-export const { reset } = experienceSlice.actions
-export default experienceSlice.reducer
+export const { reset } = extraSlice.actions
+export default extraSlice.reducer
