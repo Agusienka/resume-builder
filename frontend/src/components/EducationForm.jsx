@@ -1,7 +1,12 @@
 import { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { FaSchool } from 'react-icons/fa'
-import { createEducation } from '../features/educations/educationSlice'
+import { useNavigate } from 'react-router-dom'
+import { useEffect } from 'react';
+import { toast } from 'react-toastify'
+import { createEducation, reset } from '../features/educations/educationSlice'
+import Spinner from './Spinner'
+
 
 
 function EducationForm() {
@@ -17,6 +22,19 @@ function EducationForm() {
 
   const { degree, degreeMajor, schoolName, location, startedAt, endedAt} = formData
   const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+  const {educations, isError, isSuccess, isLoading, message} = useSelector((state) => state.educations)
+
+  useEffect(() => {
+    if(isError) {
+      toast.error(message)
+    }
+    if(isSuccess || educations) {
+      navigate('/resumeforms')
+    }
+    dispatch(reset())
+  }, [educations, isError, isSuccess, isLoading, message, navigate, dispatch])
 
 const onChange = (e) => {
   setFormData((prevState) => ({
@@ -29,28 +47,21 @@ const onChange = (e) => {
 const onSubmit = (e) => {
   e.preventDefault()
 
-  dispatch(createEducation(formData))
+  const educationData = {
+    degree,
+    degreeMajor,
+    schoolName,
+    location,
+    startedAt,
+    endedAt,
+
+  }
+  dispatch(createEducation(educationData))
   setFormData('')
 }
-
-
-  
-
-    
-      // const educationData = {
-      //   degree, 
-      //   degreeMajor, 
-      //   schoolName, 
-      //   location, 
-      //   startedAt, 
-      //   endedAt
-  
-      // }
-
-
-    
-  
-  
+if (isLoading) {
+  return <Spinner />
+}
   return (
     <>
     <section className='heading'>
