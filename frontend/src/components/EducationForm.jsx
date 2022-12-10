@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FaSchool } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link} from "react-router-dom";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
 import { createEducation, reset } from "../features/educations/educationSlice";
@@ -31,7 +31,7 @@ function EducationForm() {
       toast.error(message);
     }
     if (isSuccess || educations) {
-      navigate("/resumeforms");
+      navigate("/education");
     }
     dispatch(reset());
   }, [educations, isError, isSuccess, isLoading, message, navigate, dispatch]);
@@ -55,7 +55,7 @@ function EducationForm() {
       endedAt,
     };
     dispatch(createEducation(educationData));
-    setFormData("");
+  
 
     return () => {
       dispatch(reset());
@@ -143,7 +143,10 @@ function EducationForm() {
           </div>
           <div className="form-group">
             <button type="submit" className="btn btn-block">
-              Submit
+           
+            <Link to='/resumeforms'>Submit</Link>
+              
+           
             </button>
           </div>
         </form>
