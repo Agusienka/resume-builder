@@ -10,12 +10,12 @@ const initialState = {
 }
 
 // Create new extra
-export const createextra = createAsyncThunk(
+export const createExtra = createAsyncThunk(
   'extras/create',
   async (extraData, thunkAPI) => {
     try {
       const token = thunkAPI.getState().auth.user.token
-      return await extraService.createextra(extraData, token)
+      return await extraService.createExtra(extraData, token)
     } catch (error) {
       const message =
         (error.response &&
@@ -29,12 +29,12 @@ export const createextra = createAsyncThunk(
 )
 
 // Get user extra
-export const getextras = createAsyncThunk(
+export const getExtras = createAsyncThunk(
   'extras/getAll',
   async (_, thunkAPI) => {
     try {
       const token = thunkAPI.getState().auth.user.token
-      return await extraService.getextras(token)
+      return await extraService.getExtras(token)
     } catch (error) {
       const message =
         (error.response &&
@@ -48,12 +48,12 @@ export const getextras = createAsyncThunk(
 )
 
 //update user extra
-export const updateextra = createAsyncThunk(
+export const updateExtra = createAsyncThunk(
   'extras/update',
   async (id, thunkAPI) => {
     try {
       const token = thunkAPI.getState().auth.user.token
-      return await extraService.updateextra(id, token)
+      return await extraService.updateExtra(id, token)
     } catch (error) {
       const message =
         (error.response &&
@@ -67,12 +67,12 @@ export const updateextra = createAsyncThunk(
 )
 
 // Delete user extra
-export const deleteextra = createAsyncThunk(
+export const deleteExtra = createAsyncThunk(
   'extras/delete',
   async (id, thunkAPI) => {
     try {
       const token = thunkAPI.getState().auth.user.token
-      return await extraService.deleteextra(id, token)
+      return await extraService.deleteExtra(id, token)
     } catch (error) {
       const message =
         (error.response &&
@@ -93,59 +93,59 @@ export const extraSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(createextra.pending, (state) => {
+      .addCase(createExtra.pending, (state) => {
         state.isLoading = true
       })
-      .addCase(createextra.fulfilled, (state, action) => {
+      .addCase(createExtra.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
         state.extras.push(action.payload)
       })
-      .addCase(createextra.rejected, (state, action) => {
+      .addCase(createExtra.rejected, (state, action) => {
         state.isLoading = false
         state.isError = true
         state.message = action.payload
       })
-      .addCase(getextras.pending, (state) => {
+      .addCase(getExtras.pending, (state) => {
         state.isLoading = true
       })
-      .addCase(getextras.fulfilled, (state, action) => {
+      .addCase(getExtras.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
         state.extras = action.payload
       })
-      .addCase(getextras.rejected, (state, action) => {
+      .addCase(getExtras.rejected, (state, action) => {
         state.isLoading = false
         state.isError = true
         state.message = action.payload
       })
-      .addCase(updateextra.pending, (state) => {
+      .addCase(updateExtra.pending, (state) => {
         state.isLoading = true
       })
-      .addCase(updateextra.fulfilled, (state, action) => {
+      .addCase(updateExtra.fulfilled, (state, action) => {
         state.isLoading = true
         state.isSuccess = true
         state.extras = state.extras.filter(
           (extra) => extra._id === action.payload.id
         )
       })
-      .addCase(updateextra.rejected, (state, action) => {
+      .addCase(updateExtra.rejected, (state, action) => {
         state.isLoading = false
         state.isError = true
         state.message = action.payload
       })
 
-      .addCase(deleteextra.pending, (state) => {
+      .addCase(deleteExtra.pending, (state) => {
         state.isLoading = true
       })
-      .addCase(deleteextra.fulfilled, (state, action) => {
+      .addCase(deleteExtra.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
         state.extras = state.extras.filter(
           (extra) => extra._id !== action.payload.id
         )
       })
-      .addCase(deleteextra.rejected, (state, action) => {
+      .addCase(deleteExtra.rejected, (state, action) => {
         state.isLoading = false
         state.isError = true
         state.message = action.payload
