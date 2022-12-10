@@ -78,4 +78,4 @@ const personalSchema = mongoose.Schema(
 //   return urlRegex.test(val);
 // }, "Invalid URL.");
 
-module.exports = mongoose.model("Personal", personalSchema);
+module.exports = mongoose.model('Personal', personalSchema);

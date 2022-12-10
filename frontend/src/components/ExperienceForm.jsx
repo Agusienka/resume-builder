@@ -1,10 +1,9 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { FaSchool } from 'react-icons/fa'
-import { useNavigate, Link } from 'react-router-dom'
+import { useNavigate,Link  } from 'react-router-dom'
 import { useEffect } from 'react';
 import { toast } from 'react-toastify'
-import { createEducation, reset } from '../features/educations/educationSlice'
+//import { createExperience, reset } from '../features/experiences/experienceSlice'
 import Spinner from './Spinner'
 
 
@@ -12,29 +11,30 @@ import Spinner from './Spinner'
 function EducationForm() {
   
   const [formData, setFormData] = useState({
-    degree: '',
-    degreeMajor: '',
-    schoolName: '',
+    jobTitle: '',
+    companyName: '',
     location: '',
+    jobDescription: '',
     startedAt: '',
     endedAt: '',
+
   })
 
-  const { degree, degreeMajor, schoolName, location, startedAt, endedAt} = formData
+  const { jobTitle, companyName, location, jobDescription, startedAt, endedAt} = formData
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  const {educations, isError, isSuccess, isLoading, message} = useSelector((state) => state.educations)
+  const {experiences, isError, isSuccess, isLoading, message} = useSelector((state) => state.experiences)
 
   useEffect(() => {
     if(isError) {
       toast.error(message)
     }
-    if(isSuccess || educations) {
-      navigate('/education')
+    if(isSuccess || experiences) {
+      navigate('/experience')
     }
     dispatch(reset())
-  }, [educations, isError, isSuccess, isLoading, message, navigate, dispatch])
+  }, [experiences, isError, isSuccess, isLoading, message, navigate, dispatch])
 
 const onChange = (e) => {
   setFormData((prevState) => ({
@@ -47,16 +47,15 @@ const onChange = (e) => {
 const onSubmit = (e) => {
   e.preventDefault()
 
-  const educationData = {
-    degree,
-    degreeMajor,
-    schoolName,
+  const experienceData = {
+    jobTitle,
     location,
+    jobDescription,
     startedAt,
     endedAt,
 
   }
-  dispatch(createEducation(educationData))
+  dispatch(createExperience(experienceData))
 }
 if (isLoading) {
   return <Spinner />
@@ -65,9 +64,9 @@ if (isLoading) {
     <>
     <section className='heading'>
       <h1>
-        <FaSchool /> Education
+        Experience
       </h1>
-      <p>Please create Education form</p>
+      <p>Please list job experience here</p>
     </section>
 
     <section className='form'>
@@ -76,10 +75,10 @@ if (isLoading) {
           <input
             type='text'
             className='form-control'
-            id='degree'
-            name='degree'
-            value={degree}
-            placeholder='Provide your degree'
+            id='jobTitle'
+            name='jobTitle'
+            value={jobTitle}
+            placeholder='Provide your job title'
             onChange={onChange}
           />
         </div>
@@ -87,21 +86,10 @@ if (isLoading) {
           <input
             type='text'
             className='form-control'
-            id='degreeMajor'
-            name='degreeMajor'
-            value={degreeMajor}
-            placeholder='Enter your degree major'
-            onChange={onChange}
-          />
-        </div>
-        <div className='form-group'>
-          <input
-            type='text'
-            className='form-control'
-            id='schoolName'
-            name='schoolName'
-            value={schoolName}
-            placeholder='School name'
+            id='companyName'
+            name='companyName'
+            value={companyName}
+            placeholder='Name of your current company'
             onChange={onChange}
           />
         </div>
@@ -112,6 +100,17 @@ if (isLoading) {
             id='location'
             name='location'
             value={location}
+            placeholder='School name'
+            onChange={onChange}
+          />
+        </div>
+        <div className='form-group'>
+          <input
+            type='text'
+            className='form-control'
+            id='jobDescription '
+            name='jobDescription'
+            value={jobDescription}
             placeholder='Enter location of your school'
             onChange={onChange}
           />
@@ -141,7 +140,6 @@ if (isLoading) {
         <div className='form-group'>
           <button type='submit' className='btn btn-block'>
           <Link to='/resumeforms'>Submit</Link>
-
           </button>
         </div>
       </form>
