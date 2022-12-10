@@ -85,7 +85,7 @@ export const deleteExperience = createAsyncThunk(
   }
 )
 
-export const educationSlice = createSlice({
+export const experienceSlice = createSlice({
   name: 'experience',
   initialState,
   reducers: {
