@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 /* EducationSchema will correspond to a collection in your MongoDB database. */
-const experienceSchema = mongoose.Schema(
+const experienceSchema = new mongoose.Schema(
   {
     resume: {
       type: mongoose.Schema.Types.ObjectId,

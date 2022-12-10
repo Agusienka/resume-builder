@@ -28,6 +28,17 @@ const getPersonals = async (token) => {
   return response.data
 }
 
+//update user personal data
+const updatePersonal = async (personalId, token) => {
+  const config = {
+    headers: {
+      Authorization:`Bearer ${token}`,
+    },
+  }
+  const response = await axios.put(API_URL, personalId, config)
+  return response.data
+}
+
 // Delete user personal facts
 const deletePersonal = async (personalId, token) => {
   const config = {
@@ -44,6 +55,7 @@ const deletePersonal = async (personalId, token) => {
 const personalService = {
   createPersonal,
   getPersonals,
+  updatePersonal,
   deletePersonal,
 }
 

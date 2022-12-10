@@ -28,6 +28,18 @@ const getEducations = async (token) => {
   return response.data
 }
 
+//update user education
+const updateEducation = async (educationId, token) => {
+  const config = {
+    headers: {
+      Authorization:`Bearer ${token}`,
+    },
+  }
+  const response = await axios.put(API_URL, educationId, config)
+  return response.data
+}
+
+
 // Delete user education
 const deleteEducation = async (educationId, token) => {
   const config = {
@@ -44,6 +56,7 @@ const deleteEducation = async (educationId, token) => {
 const educationService = {
   createEducation,
   getEducations,
+  updateEducation,
   deleteEducation,
 }
 
