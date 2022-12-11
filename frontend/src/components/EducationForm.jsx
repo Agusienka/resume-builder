@@ -1,13 +1,4 @@
-import { useState} from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { FaSchool } from "react-icons/fa";
-import { useNavigate, Link} from "react-router-dom";
-import { useEffect } from "react";
-import { toast } from "react-toastify";
-import { createEducation, reset } from "../features/educations/educationSlice";
-import Spinner from "./Spinner";
-
-function EducationForm() {
   const [formData, setFormData] = useState({
     degree: "",
     degreeMajor: "",
