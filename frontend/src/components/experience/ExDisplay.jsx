@@ -41,7 +41,7 @@ function ExDisplay() {
   return (
     <>
       <section className="content">
-        <div className="form-group">
+        <div className="form-group">Experience Data
           {experiences.length > 0 ? (
             <div className="goals">
               {experiences.map((experience) => (

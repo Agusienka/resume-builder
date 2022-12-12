@@ -38,7 +38,7 @@ function EdDisplay() {
   return (
     <>
       <section className="content">
-        <div className="form-group">
+        <div className="form-group">Education Data
           {educations.length > 0 ? (
             <div className="goals">
               {educations.map((education) => (
