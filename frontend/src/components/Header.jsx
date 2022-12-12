@@ -26,7 +26,10 @@ function Header() {
       <ul>
         {user ? (
           <>
-
+          <li>
+            <Link to='/resumeforms'> Resume data
+            </Link>
+          </li>
 
           <li>
             <Link to='/forms'> Forms

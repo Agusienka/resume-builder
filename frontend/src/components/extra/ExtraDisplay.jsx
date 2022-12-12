@@ -38,7 +38,7 @@ function ExtraDisplay() {
   return (
     <>
       <section className="content">
-        <div className="form-group">
+        <div className="form-group"> Extra Data
           {extras.length > 0 ? (
             <div className="goals">
               {extras.map((extra) => (
