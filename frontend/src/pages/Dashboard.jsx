@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import GoalForm from '../components/GoalForm'
-import GoalItem from '../components/GoalItem'
+import GoalForm from '../components/goal/GoalForm'
+import GoalItem from '../components/goal/GoalItem'
 import Spinner from '../components/Spinner'
 import { getGoals, reset } from '../features/goals/goalSlice'
 
@@ -41,10 +41,15 @@ function Dashboard() {
         <h1>Welcome {user && user.firstName}</h1>
         <div className='form-group'>
         
-            <button type='submit' className='btn btn-block'>
-            <Link to='/education'>Click here to start creating your resume</Link>
-              
+            {/* <button type='submit' className='btn btn-block'>
+            <Link to='/education'>Click here to create your education form</Link>  
             </button>
+            <button type='submit' className='btn btn-block'>
+            <Link to='/personal'>Click here to start creating your personal form</Link>  
+            </button>
+            <button type='submit' className='btn btn-block'>
+            <Link to='/experience'>Click here to start creating your experience form</Link>  
+            </button> */}
         </div>
         <p>Goals Dashboard</p>
 

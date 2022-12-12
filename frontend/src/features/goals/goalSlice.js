@@ -125,7 +125,7 @@ export const goalSlice = createSlice({
       .addCase(updateGoal.fulfilled, (state, action) => {
         state.isLoading = true
         state.isSuccess = true
-        state.educations = state.educations.filter(
+        state.goals = state.goals.filter(
           (goal) => goal._id === action.payload.id
         )
       })

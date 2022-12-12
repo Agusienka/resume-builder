@@ -28,10 +28,10 @@ export const createPersonal = createAsyncThunk(
   }
 )
 
-// Get user personal facts
+// Get user personal
 export const getPersonals = createAsyncThunk(
   'personals/getAll',
-  async (personalData, thunkAPI) => {
+  async (_, thunkAPI) => {
     try {
       const token = thunkAPI.getState().auth.user.token
       return await personalService.getPersonals(token)
@@ -47,7 +47,7 @@ export const getPersonals = createAsyncThunk(
   }
 )
 
-//update user goals
+//update user personal
 export const updatePersonal = createAsyncThunk(
   'personals/update',
   async (id, thunkAPI) => {
@@ -66,7 +66,7 @@ export const updatePersonal = createAsyncThunk(
   }
 )
 
-// Delete user personal facts
+// Delete user personal
 export const deletePersonal = createAsyncThunk(
   'personals/delete',
   async (id, thunkAPI) => {
@@ -119,14 +119,13 @@ export const personalSlice = createSlice({
         state.isError = true
         state.message = action.payload
       })
-
       .addCase(updatePersonal.pending, (state) => {
         state.isLoading = true
       })
       .addCase(updatePersonal.fulfilled, (state, action) => {
         state.isLoading = true
         state.isSuccess = true
-        state.personals = state.educations.filter(
+        state.personals = state.personals.filter(
           (personal) => personal._id === action.payload.id
         )
       })
@@ -135,6 +134,7 @@ export const personalSlice = createSlice({
         state.isError = true
         state.message = action.payload
       })
+
       .addCase(deletePersonal.pending, (state) => {
         state.isLoading = true
       })
