@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const personalSchema = mongoose.Schema(
+const personalSchema = new mongoose.Schema(
   {
     resume: {
       type: mongoose.Schema.Types.ObjectId,
@@ -12,10 +12,6 @@ const personalSchema = mongoose.Schema(
       ref: "User",
       required: true,
     },
-    country: {
-      type: String,
-      required: false,
-    },
     state: {
       type: String,
       required: [true, "Please enter name of the state"],
@@ -23,14 +19,6 @@ const personalSchema = mongoose.Schema(
     city: {
       type: String,
       required: [true, "Please enter name of the city"],
-    },
-    street: {
-      type: String,
-      required: false,
-    },
-    houseNumber: {
-      type: String,
-      required: false,
     },
     linkedIn: {
       type: String,
@@ -40,29 +28,6 @@ const personalSchema = mongoose.Schema(
     gitHub: {
       type: String,
       required: [false, "Please paste a link to your GitHub account"],
-      unique: true,
-    },
-    twitter: {
-      type: String,
-      required: [false, "Please paste a link to your Twitter account"],
-      unique: true,
-    },
-    facebook: {
-      type: String,
-      required: [false, "Please paste a link to your Facebook account"],
-      unique: true,
-    },
-    instagram: {
-      type: String,
-      required: [false, "Please paste a link to your Instagram account"],
-      unique: true,
-    },
-    youTube: {
-      type: String,
-      required: [
-        false,
-        "Please paste a link to your relevant Youtube content ",
-      ],
       unique: true,
     },
   },
@@ -78,4 +43,4 @@ const personalSchema = mongoose.Schema(
 //   return urlRegex.test(val);
 // }, "Invalid URL.");
 
-module.exports = mongoose.model("Personal", personalSchema);
+module.exports = mongoose.model('Personal', personalSchema);

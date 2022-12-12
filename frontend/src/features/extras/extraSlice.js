@@ -1,21 +1,21 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import goalService from './goalService'
+import extraService from './extraService'
 
 const initialState = {
-  goals: [],
+  extras: [],
   isError: false,
   isSuccess: false,
   isLoading: false,
   message: '',
 }
 
-// Create new goal
-export const createGoal = createAsyncThunk(
-  'goals/create',
-  async (goalData, thunkAPI) => {
+// Create new extra
+export const createExtra = createAsyncThunk(
+  'extras/create',
+  async (extraData, thunkAPI) => {
     try {
       const token = thunkAPI.getState().auth.user.token
-      return await goalService.createGoal(goalData, token)
+      return await extraService.createExtra(extraData, token)
     } catch (error) {
       const message =
         (error.response &&
@@ -28,13 +28,13 @@ export const createGoal = createAsyncThunk(
   }
 )
 
-// Get user goals
-export const getGoals = createAsyncThunk(
-  'goals/getAll',
+// Get user extra
+export const getExtras = createAsyncThunk(
+  'extras/getAll',
   async (_, thunkAPI) => {
     try {
       const token = thunkAPI.getState().auth.user.token
-      return await goalService.getGoals(token)
+      return await extraService.getExtras(token)
     } catch (error) {
       const message =
         (error.response &&
@@ -47,13 +47,13 @@ export const getGoals = createAsyncThunk(
   }
 )
 
-//update user goals
-export const updateGoal = createAsyncThunk(
-  'goals/update',
+//update user extra
+export const updateExtra = createAsyncThunk(
+  'extras/update',
   async (id, thunkAPI) => {
     try {
       const token = thunkAPI.getState().auth.user.token
-      return await goalService.updateGoal(id, token)
+      return await extraService.updateExtra(id, token)
     } catch (error) {
       const message =
         (error.response &&
@@ -66,13 +66,13 @@ export const updateGoal = createAsyncThunk(
   }
 )
 
-// Delete user goal
-export const deleteGoal = createAsyncThunk(
-  'goals/delete',
+// Delete user extra
+export const deleteExtra = createAsyncThunk(
+  'extras/delete',
   async (id, thunkAPI) => {
     try {
       const token = thunkAPI.getState().auth.user.token
-      return await goalService.deleteGoal(id, token)
+      return await extraService.deleteExtra(id, token)
     } catch (error) {
       const message =
         (error.response &&
@@ -85,67 +85,67 @@ export const deleteGoal = createAsyncThunk(
   }
 )
 
-export const goalSlice = createSlice({
-  name: 'goal',
+export const extraSlice = createSlice({
+  name: 'extra',
   initialState,
   reducers: {
     reset: (state) => initialState,
   },
   extraReducers: (builder) => {
     builder
-      .addCase(createGoal.pending, (state) => {
+      .addCase(createExtra.pending, (state) => {
         state.isLoading = true
       })
-      .addCase(createGoal.fulfilled, (state, action) => {
+      .addCase(createExtra.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
-        state.goals.push(action.payload)
+        state.extras.push(action.payload)
       })
-      .addCase(createGoal.rejected, (state, action) => {
+      .addCase(createExtra.rejected, (state, action) => {
         state.isLoading = false
         state.isError = true
         state.message = action.payload
       })
-      .addCase(getGoals.pending, (state) => {
+      .addCase(getExtras.pending, (state) => {
         state.isLoading = true
       })
-      .addCase(getGoals.fulfilled, (state, action) => {
+      .addCase(getExtras.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
-        state.goals = action.payload
+        state.extras = action.payload
       })
-      .addCase(getGoals.rejected, (state, action) => {
+      .addCase(getExtras.rejected, (state, action) => {
         state.isLoading = false
         state.isError = true
         state.message = action.payload
       })
-      .addCase(updateGoal.pending, (state) => {
+      .addCase(updateExtra.pending, (state) => {
         state.isLoading = true
       })
-      .addCase(updateGoal.fulfilled, (state, action) => {
+      .addCase(updateExtra.fulfilled, (state, action) => {
         state.isLoading = true
         state.isSuccess = true
-        state.goals = state.goals.filter(
-          (goal) => goal._id === action.payload.id
+        state.extras = state.extras.filter(
+          (extra) => extra._id === action.payload.id
         )
       })
-      .addCase(updateGoal.rejected, (state, action) => {
+      .addCase(updateExtra.rejected, (state, action) => {
         state.isLoading = false
         state.isError = true
         state.message = action.payload
       })
 
-      .addCase(deleteGoal.pending, (state) => {
+      .addCase(deleteExtra.pending, (state) => {
         state.isLoading = true
       })
-      .addCase(deleteGoal.fulfilled, (state, action) => {
+      .addCase(deleteExtra.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
-        state.goals = state.goals.filter(
-          (goal) => goal._id !== action.payload.id
+        state.extras = state.extras.filter(
+          (extra) => extra._id !== action.payload.id
         )
       })
-      .addCase(deleteGoal.rejected, (state, action) => {
+      .addCase(deleteExtra.rejected, (state, action) => {
         state.isLoading = false
         state.isError = true
         state.message = action.payload
@@ -153,5 +153,5 @@ export const goalSlice = createSlice({
   },
 })
 
-export const { reset } = goalSlice.actions
-export default goalSlice.reducer
+export const { reset } = extraSlice.actions
+export default extraSlice.reducer
