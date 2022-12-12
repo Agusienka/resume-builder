@@ -101,7 +101,7 @@ export const experienceSlice = createSlice({
       .addCase(createExperience.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
-        state.educations.push(action.payload)
+        state.experiences.push(action.payload)
       })
       .addCase(createExperience.rejected, (state, action) => {
         state.isLoading = false
@@ -116,7 +116,7 @@ export const experienceSlice = createSlice({
       .addCase(getExperiences.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
-        state.educations = action.payload
+        state.experiences = action.payload
       })
       .addCase(getExperiences.rejected, (state, action) => {
         state.isLoading = false
@@ -148,7 +148,7 @@ export const experienceSlice = createSlice({
       .addCase(deleteExperience.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
-        state.Experiences = state.experiences.filter(
+        state.experiences = state.experiences.filter(
           (experience) => experience._id !== action.payload.id
         )
       })

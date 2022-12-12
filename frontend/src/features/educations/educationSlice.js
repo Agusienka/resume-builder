@@ -141,7 +141,7 @@ export const educationSlice = createSlice({
       .addCase(deleteEducation.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
-        state.Educations = state.educations.filter(
+        state.educations = state.educations.filter(
           (education) => education._id !== action.payload.id
         )
       })

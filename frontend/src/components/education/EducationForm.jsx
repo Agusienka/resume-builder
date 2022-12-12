@@ -1,4 +1,13 @@
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { FaSchool } from "react-icons/fa";
+import { useNavigate, Link } from "react-router-dom";
+import { useEffect } from "react";
+import { toast } from "react-toastify";
+import { createEducation, reset } from "../../features/educations/educationSlice";
+import Spinner from "../Spinner";
+
+function EducationForm() {
   const [formData, setFormData] = useState({
     degree: "",
     degreeMajor: "",
@@ -31,8 +40,11 @@ import { FaSchool } from "react-icons/fa";
     setFormData((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
+      
     }));
+    console.log(educations)
   };
+
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -46,7 +58,6 @@ import { FaSchool } from "react-icons/fa";
       endedAt,
     };
     dispatch(createEducation(educationData));
-  
 
     return () => {
       dispatch(reset());
@@ -134,10 +145,7 @@ import { FaSchool } from "react-icons/fa";
           </div>
           <div className="form-group">
             <button type="submit" className="btn btn-block">
-           
-            <Link to='/resumeforms'>Submit</Link>
-              
-           
+              <Link to="/ed">Submit</Link>
             </button>
           </div>
         </form>
