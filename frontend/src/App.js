@@ -1,9 +1,15 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+<<<<<<< HEAD
 import EducationForm from './components/education/EducationForm'
 import PersonalForm from './components/personal/PersonalForm'
 import ExperienceForm from './components/experience/ExperienceForm'
+=======
+import EducationForm from './components/EducationForm'
+import PersonalForm from './components/PersonalForm'
+import ExperienceForm from './components/ExperienceForm'
+>>>>>>> 302dfb7110013cb7384987752f4b649c5321943b
 import Header from './components/Header'
 import Dashboard from './pages/Dashboard'
 import Login from './pages/Login'
@@ -29,12 +35,16 @@ function App() {
             <Route path='/education' element={<EducationForm />} />
             <Route path = '/personal' element={<PersonalForm />} />
             <Route path='/experience' element={<ExperienceForm />} />
+<<<<<<< HEAD
             <Route path='/ed' element={<EdDisplay />} />
             <Route path='/per' element={<PersonalDisplay />} />
             <Route path='/ex' element={<ExDisplay />} />
             <Route path='/forms' element={<ResumeForms />} />
             <Route path='/exdisp' element={<ExtraDisplay />} />
             <Route path='/extra' element={<ExtraForm />} />
+=======
+            <Route path='/resumeforms' element={<ResumeForms />} />
+>>>>>>> 302dfb7110013cb7384987752f4b649c5321943b
           </Routes>
         </div>
       </Router>
