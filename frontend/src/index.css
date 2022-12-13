@@ -249,6 +249,44 @@ a {
   text-decoration: none;;
 }
 
+.rHeader {
+  vertical-align: top;
+}
+
+.rName {
+  text-align: left;
+  float: left;
+}
+
+.rContactInfo {
+  float: right;
+}
+
+.rBody {
+  text-align: left;
+}
+
+.rtab {
+  text-indent: 10%;
+  font-weight: bold;
+}
+
+.rbullet {
+  text-indent: 20%;
+}
+
+.rRef1 {
+  float: left;
+}
+
+.rRef2 {
+  float: none;
+}
+
+.rRef3 {
+  float: right;
+}
+
 /* Top Navigation Bar */
 
 /* <nav> */
