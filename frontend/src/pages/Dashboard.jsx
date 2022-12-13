@@ -1,8 +1,6 @@
 import { useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import GoalForm from '../components/GoalForm'
-import GoalItem from '../components/GoalItem'
 import Spinner from '../components/Spinner'
 import { getGoals, reset } from '../features/goals/goalSlice'
 
@@ -42,27 +40,18 @@ function Dashboard() {
         <div className='form-group'>
         
             <button type='submit' className='btn btn-block'>
-            <Link to='/education'>Click here to start creating your resume</Link>
-              
+            <Link to='/education'>Education Form</Link>
+            </button>
+            <button type='submit' className='btn btn-block'>
+            <Link to='/experience'>Experience Form</Link>
+            </button>
+            <button type='submit' className='btn btn-block'>
+            <Link to='/personal'>Personal Information Form</Link>  
             </button>
         </div>
-        <p>Goals Dashboard</p>
 
       </section>
 
-      <GoalForm />
-
-      <section className='content'>
-        {goals.length > 0 ? (
-          <div className='goals'>
-            {goals.map((goal) => (
-              <GoalItem key={goal._id} goal={goal} />
-            ))}
-          </div>
-        ) : (
-          <h3>You have not set any goals</h3>
-        )}
-      </section>
     </>
   )
 }
