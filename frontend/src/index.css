@@ -276,15 +276,21 @@ a {
 }
 
 .rRef1 {
-  float: left;
+  padding: 70px;
 }
 
 .rRef2 {
-  float: none;
+  padding: 70px;
 }
 
 .rRef3 {
-  float: right;
+  padding: 70px;
+}
+
+.rReference {
+  vertical-align: top;
+  display: flex;
+  justify-content: center;
 }
 
 /* Top Navigation Bar */

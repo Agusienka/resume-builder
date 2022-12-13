@@ -43,22 +43,22 @@ export default function ResumeForms() {
       </div>
       <hr></hr>
       <h3>References</h3>  
-      <div>
+      <div class ='rReference'>
       <blockquote class='rRef1'>
-          "Guy Workman <br/>
+          Guy Workman <br/>
           President of Company Inc. <br/>
-          123-321-1234"
-        </blockquote>
-        <blockquote class='rRef2'>
-        "John Smith <br/>
+          123-321-1234
+      </blockquote>
+      <blockquote class='rRef2'>
+        John Smith <br/>
         Good Dude <br/>
-        123-321-1235"
-        </blockquote>
-        <blockquote class='rRef3'>
-          "Mary Martin <br/>
+        123-321-1235
+      </blockquote>
+      <blockquote class='rRef3'>
+          Mary Martin <br/>
           College University Dean <br/>
-          999-999-9999"
-        </blockquote>
+          999-999-9999
+      </blockquote>
       </div>
     </>
   );
