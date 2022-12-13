@@ -4,19 +4,16 @@ import { useSelector, useDispatch } from "react-redux";
 import EducationForm from "../components/EducationForm";
 import Spinner from "../components/Spinner";
 import { getEducations, reset } from "../features/educations/educationSlice";
-import { getPersonals } from "../features/personals/personalSlice";
 import EducationItem from "./EducationItem";
-import PersonalItem from "./PersonalItem";
 
 function ResumeForms() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const { user } = useSelector((state) => state.auth)
-  const { educations, personals, isLoading, isError, message } = useSelector(
-    (state) => state.educations & state.personals
+  const { educations, isLoading, isError, message } = useSelector(
+    (state) => state.educations
   )
-
   const onSubmit =() =>{
     navigate('/resumeforms')
   }
@@ -30,7 +27,6 @@ function ResumeForms() {
     }
 
     dispatch(getEducations())
-    dispatch(getPersonals())
     
 
     return () => {
@@ -58,24 +54,6 @@ function ResumeForms() {
             <>
             <h3>You have not created any eduction history</h3>
             <button type= 'submit' className='btn' onClick={() => navigate('/education')} >
-              
-            </button>
-            </>
-          )}
-        </div>
-      </section>
-      <section className="content">
-        <div className="form-group">
-          {personals.length > 0 ? (
-            <div className="goals">
-              {personals.map((personal) => (
-                <PersonalItem key={personal._id} personal={personal} />
-              ))}
-            </div>
-          ) : (
-            <>
-            <h3>You have not created any eduction history</h3>
-            <button type= 'submit' className='btn' onClick={() => navigate('/personal')} >
               
             </button>
             </>

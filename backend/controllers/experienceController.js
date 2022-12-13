@@ -70,7 +70,7 @@ const updateExperience = asyncHandler(async (req, res) => {
 // @route   DELETE /api/experience/:id
 // @access  Private
 const deleteExperience = asyncHandler(async (req, res) => {
-  const experience = await Education.findById(req.params.id);
+  const experience = await Experience.findById(req.params.id);
 
   if (!experience) {
     res.status(400);

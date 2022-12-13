@@ -8,7 +8,7 @@ import Spinner from './Spinner'
 
 
 
-function EducationForm() {
+function ExperienceForm() {
   
   const [formData, setFormData] = useState({
     jobTitle: '',
@@ -56,6 +56,10 @@ const onSubmit = (e) => {
 
   }
   dispatch(createExperience(experienceData))
+
+  return () => {
+    dispatch(reset());
+  };
 }
 if (isLoading) {
   return <Spinner />
@@ -148,4 +152,4 @@ if (isLoading) {
 )
   }
 
-export default EducationForm
+export default ExperienceForm
