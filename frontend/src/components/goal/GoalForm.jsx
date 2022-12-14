@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { createGoal } from '../features/goals/goalSlice'
+import { createGoal } from '../../features/goals/goalSlice'
 
 function GoalForm() {
   const [text, setText] = useState('')
@@ -13,6 +13,10 @@ function GoalForm() {
     dispatch(createGoal({ text }))
     setText('')
   }
+/*Ask Chris*/
+function printPage() {
+  window.print('form')
+}
 
   return (
     <section className='form'>
@@ -30,6 +34,11 @@ function GoalForm() {
         <div className='form-group'>
           <button className='btn btn-block' type='submit'>
             Add Goal
+          </button>
+        </div>
+        <div>
+          <button className='btn btn-print' onclick='printPage()'>
+          Print this page!
           </button>
         </div>
       </form>

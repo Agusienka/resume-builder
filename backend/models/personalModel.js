@@ -12,10 +12,6 @@ const personalSchema = new mongoose.Schema(
       ref: "User",
       required: true,
     },
-    country: {
-      type: String,
-      required: false,
-    },
     state: {
       type: String,
       required: [true, "Please enter name of the state"],
@@ -23,14 +19,6 @@ const personalSchema = new mongoose.Schema(
     city: {
       type: String,
       required: [true, "Please enter name of the city"],
-    },
-    street: {
-      type: String,
-      required: false,
-    },
-    houseNumber: {
-      type: String,
-      required: false,
     },
     linkedIn: {
       type: String,
@@ -40,29 +28,6 @@ const personalSchema = new mongoose.Schema(
     gitHub: {
       type: String,
       required: [false, "Please paste a link to your GitHub account"],
-      unique: true,
-    },
-    twitter: {
-      type: String,
-      required: [false, "Please paste a link to your Twitter account"],
-      unique: true,
-    },
-    facebook: {
-      type: String,
-      required: [false, "Please paste a link to your Facebook account"],
-      unique: true,
-    },
-    instagram: {
-      type: String,
-      required: [false, "Please paste a link to your Instagram account"],
-      unique: true,
-    },
-    youTube: {
-      type: String,
-      required: [
-        false,
-        "Please paste a link to your relevant Youtube content ",
-      ],
       unique: true,
     },
   },

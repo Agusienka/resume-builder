@@ -1,15 +1,15 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { FaIdCardAlt } from "react-icons/fa";
 import { useNavigate,Link  } from 'react-router-dom'
 import { useEffect } from 'react';
 import { toast } from 'react-toastify'
-import { createExperience, reset } from '../features/experiences/experienceSlice'
-import Spinner from './Spinner'
+import { createExperience, reset } from '../../features/experiences/experienceSlice'
+import Spinner from '../Spinner'
 
 
 
 function ExperienceForm() {
-  
   const [formData, setFormData] = useState({
     jobTitle: '',
     companyName: '',
@@ -17,8 +17,7 @@ function ExperienceForm() {
     jobDescription: '',
     startedAt: '',
     endedAt: '',
-
-  })
+  });
 
   const { jobTitle, companyName, location, jobDescription, startedAt, endedAt} = formData
   const dispatch = useDispatch()
@@ -47,8 +46,12 @@ const onChange = (e) => {
 const onSubmit = (e) => {
   e.preventDefault()
 
+  dispatch(createExperience(formData))
+  setFormData('')
+
   const experienceData = {
     jobTitle,
+    companyName,
     location,
     jobDescription,
     startedAt,
@@ -70,6 +73,7 @@ if (isLoading) {
       <h1>
         Experience
       </h1>
+      <FaIdCardAlt /> Job Experience
       <p>Please list job experience here</p>
     </section>
 
@@ -104,7 +108,7 @@ if (isLoading) {
             id='location'
             name='location'
             value={location}
-            placeholder='School name'
+            placeholder='Job location'
             onChange={onChange}
           />
         </div>
@@ -115,7 +119,7 @@ if (isLoading) {
             id='jobDescription '
             name='jobDescription'
             value={jobDescription}
-            placeholder='Enter location of your school'
+            placeholder='Enter job description'
             onChange={onChange}
           />
         </div>
@@ -143,7 +147,7 @@ if (isLoading) {
         </div>
         <div className='form-group'>
           <button type='submit' className='btn btn-block'>
-          <Link to='/resumeforms'>Submit</Link>
+          <Link to='/ex'>Submit</Link>
           </button>
         </div>
       </form>

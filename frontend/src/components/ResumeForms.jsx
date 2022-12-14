@@ -1,67 +1,49 @@
-import { useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import EducationForm from "../components/EducationForm";
-import Spinner from "../components/Spinner";
-import { getEducations, reset } from "../features/educations/educationSlice";
-import EducationItem from "./EducationItem";
+import { Link } from "react-router-dom";
+import ResumeData from "./ResumeData";
 
-function ResumeForms() {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
 
-  const { user } = useSelector((state) => state.auth)
-  const { educations, isLoading, isError, message } = useSelector(
-    (state) => state.educations
-  )
-  const onSubmit =() =>{
-    navigate('/resumeforms')
-  }
-  useEffect(() => {
-    if (isError) {
-      console.log(message)
-    }
-
-    if (!user) {
-      navigate('/login')
-    }
-
-    dispatch(getEducations())
-    
-
-    return () => {
-      dispatch(reset())
-    }
-  }, [user, navigate, isError, message, dispatch])
-
-  if (isLoading) {
-    return <Spinner />
-  }
-
-    
-
+export default function ResumeForms() {
   return (
     <>
-      <section className="content">
-        <div className="form-group">
-          {educations.length > 0 ? (
-            <div className="goals">
-              {educations.map((education) => (
-                <EducationItem key={education._id} education={education} />
-              ))}
-            </div>
-          ) : (
-            <>
-            <h3>You have not created any eduction history</h3>
-            <button type= 'submit' className='btn' onClick={() => navigate('/education')} >
-              
-            </button>
-            </>
-          )}
-        </div>
-      </section>
+      <h1 class='rName'>User McUser</h1>
+      <p class='rEmail'>user@user.com</p>
+      <p class='rPhone'>123-456-7890</p>
+      <hr></hr>
+      <h3>Professional Experience</h3>
+      <p>Company Inc.</p>
+      <p>(March 2022-December 2022)</p>
+      <ul>Learned how to be a good worker</ul>
+      <ul>Learned how to listen to boss</ul>
+      <h3>Education</h3>
+      <p>College University</p>
+      <p>(GPA 3.5, Graduated June 2016)</p>
+      <p>Valley High School</p>
+      <p>(GPA 3.0, Graduated May 2020)</p>
+      <h3>Proficiencies</h3>
+      <ul>Proficient in Excel</ul>
+      <ul>Proficient in VSCode</ul>
+      <ul>Proficient in People Skills</ul>
+      <hr></hr>
+      <h3>References</h3>  
     </>
   );
 }
 
-export default ResumeForms;
+/*<div className="heading">
+        <h1 className="heading">This is where the degree goes.</h1>
+      </div>
+      <div>
+        <h1 className="heading">
+          <Link to="/personal">Personal Form</Link>
+        </h1>
+      </div>
+      <div>
+        <h1 className="heading">
+          <Link to="/education">Education Form</Link>
+        </h1>
+      </div>
+      <div>
+        <h1 className="heading">
+          <Link to="/extra">Extras Form</Link>
+        </h1>
+      </div>*/

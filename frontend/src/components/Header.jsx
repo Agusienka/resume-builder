@@ -25,11 +25,22 @@ function Header() {
    
       <ul>
         {user ? (
+          <>
+          <li>
+            <Link to='/resumeforms'> Resume data
+            </Link>
+          </li>
+
+          <li>
+            <Link to='/forms'> Forms
+            </Link>
+          </li>
           <li>
             <button className='btn' onClick={onLogout}>
               <FaSignOutAlt /> Logout
             </button>
-          </li>
+            </li>
+          </>
         ) : (
           <>
             <li>

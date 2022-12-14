@@ -9,3 +9,5 @@ router.route('/:id').put(protect, updatePersonal).delete(protect, deletePersonal
 
 
 module.exports = router
+
+

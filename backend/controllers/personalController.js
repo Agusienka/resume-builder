@@ -3,16 +3,16 @@ const asyncHandler = require("express-async-handler");
 const Personal = require("../models/personalModel");
 const User = require("../models/userModel");
 
-// @desc    Get/read/see personal info
+// @desc    Get/read/see personal
 // @route   GET /api/personal
 // @access  Private
 const getPersonals = asyncHandler(async (req, res) => {
-  const personals = await Extra.find({ user: req.user.id });
+  const personals = await Personal.find({ user: req.user.id });
 
   res.status(200).json(personals);
 });
 
-// @desc    Set/create personal info
+// @desc    Set/create personal
 // @route   POST /api/personal
 // @access  Private
 const setPersonal = asyncHandler(async (req, res) => {
@@ -23,18 +23,17 @@ const setPersonal = asyncHandler(async (req, res) => {
       }
 
   const personal = await Personal.create({
-    state,
-    city,
-    linkedIn,
-    gitHub,
+    state, 
+    city, 
+    linkedIn, 
+    gitHub, 
     user: req.user.id,
   });
 
   res.status(200).json(personal);
-
 });
 
-// @desc    Update personal info
+// @desc    Update personal
 // @route   PUT /api/personal/:id
 // @access  Private
 const updatePersonal = asyncHandler(async (req, res) => {
@@ -51,7 +50,7 @@ const updatePersonal = asyncHandler(async (req, res) => {
     throw new Error("User not found");
   }
 
-  // Make sure the logged in user matches the extras user
+  // Make sure the logged in user matches the personal user
   if (personal.user.toString() !== req.user.id) {
     res.status(401);
     throw new Error("User not authorized");
@@ -64,7 +63,7 @@ const updatePersonal = asyncHandler(async (req, res) => {
   res.status(200).json(updatedPersonal);
 });
 
-// @desc    Delete personal info
+// @desc    Delete personal
 // @route   DELETE /api/personal/:id
 // @access  Private
 const deletePersonal = asyncHandler(async (req, res) => {

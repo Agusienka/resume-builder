@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const API_URL = '/api/personals/'
 
-// Create new personal fact
+// Create new personal
 const createPersonal = async (personalData, token) => {
   const config = {
     headers: {
@@ -15,7 +15,7 @@ const createPersonal = async (personalData, token) => {
   return response.data
 }
 
-// Get user personal facts
+// Get user personal
 const getPersonals = async (token) => {
   const config = {
     headers: {
@@ -28,7 +28,7 @@ const getPersonals = async (token) => {
   return response.data
 }
 
-//update user personal data
+//update user personal
 const updatePersonal = async (personalId, token) => {
   const config = {
     headers: {
@@ -39,7 +39,8 @@ const updatePersonal = async (personalId, token) => {
   return response.data
 }
 
-// Delete user personal facts
+
+// Delete user personal
 const deletePersonal = async (personalId, token) => {
   const config = {
     headers: {
