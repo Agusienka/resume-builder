@@ -13,7 +13,7 @@ function PersonalDisplay() {
   const { personals, isLoading, isError, message } = useSelector(
     (state) => state.personals
   );
-  console.log();
+  
 
   useEffect(() => {
     if (isError) {
@@ -50,7 +50,7 @@ function PersonalDisplay() {
             <>
               <h3>You have not created any eduction history</h3>
               <button type="submit" className="btn">
-                <Link to="/personal">Submit</Link>
+                <Link to="/resumeforms">Submit</Link>
               </button>
             </>
           )}

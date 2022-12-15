@@ -93,6 +93,7 @@ export const educationSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
+    
       .addCase(createEducation.pending, (state) => {
         state.isLoading = true
       })
@@ -106,6 +107,9 @@ export const educationSlice = createSlice({
         state.isError = true
         state.message = action.payload
       })
+
+
+
       .addCase(getEducations.pending, (state) => {
         state.isLoading = true
       })

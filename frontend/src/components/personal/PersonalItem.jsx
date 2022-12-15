@@ -4,6 +4,7 @@ import { deletePersonal } from "../../features/personals/personalSlice";
 function PersonalItem({ personal }) {
   const dispatch = useDispatch();
 
+
   return (
     <div className="goal">
       <div>{new Date(personal.createdAt).toLocaleString("en-US")}</div>

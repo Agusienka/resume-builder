@@ -1,4 +1,5 @@
 import { useDispatch } from "react-redux";
+import { Navigate } from "react-router-dom";
 import { deleteEducation } from "../../features/educations/educationSlice";
 
 function EducationItem({ education }) {
@@ -14,7 +15,7 @@ function EducationItem({ education }) {
       <h2>{education.startedAt}</h2>
       <h2>{education.endedAt}</h2>
       <button
-        onClick={() => dispatch(deleteEducation(education._id))}
+        onClick={() => dispatch(deleteEducation(education._id)) && Navigate('')}
         className="close"
       >
         X

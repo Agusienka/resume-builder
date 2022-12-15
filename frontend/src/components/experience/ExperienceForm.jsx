@@ -143,7 +143,7 @@ if (isLoading) {
         </div>
         <div className='form-group'>
           <button type='submit' className='btn btn-block'>
-          <Link to='/ex'>Submit</Link>
+          <Link to='/resumeforms'>Submit</Link>
           </button>
         </div>
       </form>

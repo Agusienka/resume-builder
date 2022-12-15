@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Spinner from "../Spinner";
 import { getEducations, reset } from "../../features/educations/educationSlice";
 import EducationItem from "./EducationItem";
+import EducationForm from "./EducationForm";
 
 function EdDisplay() {
   const navigate = useNavigate();
@@ -24,7 +25,7 @@ function EdDisplay() {
     }
 
     dispatch(getEducations());
-    console.log(getEducations);
+   
 
     return () => {
       dispatch(reset());
@@ -36,6 +37,7 @@ function EdDisplay() {
   }
 
   return (
+
     <>
       <section className="content">
         <div className="form-group">Education Data

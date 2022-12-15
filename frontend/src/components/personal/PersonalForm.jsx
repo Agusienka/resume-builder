@@ -15,16 +15,17 @@ function PersonalForm() {
     gitHub: "",
   });
 
-  const { state, city, linkedIn, gitHub } =
-    formData;
+  const { state, city, linkedIn, gitHub } = formData;
+  
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const { personals, isError, isSuccess, isLoading, message } = useSelector(
     (state) => state.personals
   );
 
   useEffect(() => {
+    dispatch({type: createPersonal.fulfilled})
     if (isError) {
       toast.error(message);
     }
@@ -33,13 +34,14 @@ function PersonalForm() {
     }
     dispatch(reset());
   }, [personals, isError, isSuccess, isLoading, message, navigate, dispatch]);
-  console.log(personals)
 
   const onChange = (e) => {
     setFormData((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
+      
     }));
+    
   };
 
   const onSubmit = (e) => {
@@ -51,8 +53,8 @@ function PersonalForm() {
       linkedIn,
       gitHub,
     };
-    dispatch(createPersonal(personalData));
-
+    dispatch(createPersonal(personalData))
+    console.log(personalData, 'personal form dispatching ');
     return () => {
       dispatch(reset());
     };
@@ -60,6 +62,8 @@ function PersonalForm() {
   if (isLoading) {
     return <Spinner />;
   }
+  
+ 
   return (
     <>
       <section className="heading">
@@ -117,7 +121,7 @@ function PersonalForm() {
           </div>
           <div className="form-group">
             <button type="submit" className="btn btn-block">
-              <Link to="/per">Submit</Link>
+            <Link to='/resumeforms'>Submit</Link>
             </button>
           </div>
         </form>

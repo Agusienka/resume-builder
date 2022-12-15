@@ -27,6 +27,7 @@ function EducationForm() {
   );
 
   useEffect(() => {
+    dispatch({type: createEducation.fulfilled})
     if (isError) {
       toast.error(message);
     }
@@ -42,7 +43,7 @@ function EducationForm() {
       [e.target.name]: e.target.value,
       
     }));
-    console.log(educations)
+    
   };
 
 
@@ -58,7 +59,7 @@ function EducationForm() {
       endedAt,
     };
     dispatch(createEducation(educationData));
-
+    console.log(educationData, "on submit") //o
     return () => {
       dispatch(reset());
     };
