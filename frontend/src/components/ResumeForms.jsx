@@ -1,10 +1,14 @@
 import { Link } from "react-router-dom";
 import ResumeData from "./ResumeData";
+import {useSelector} from "react"
 
-export default function ResumeForms() {
+ function ResumeForms() {
+
+  const {user} = useSelector((state)=> state.auth)
+
   return (
     <>
-      <h1 class='rName'>User McUser</h1>
+      <h1 class='rName'>{user.firstName}</h1>
       <p class='rEmail'>user@user.com</p>
       <p class='rPhone'>123-456-7890</p>
       <hr></hr>
@@ -46,3 +50,5 @@ export default function ResumeForms() {
           <Link to="/extra">Extras Form</Link>
         </h1>
       </div>*/
+
+      export default ResumeForms
