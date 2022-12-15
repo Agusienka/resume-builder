@@ -9,6 +9,7 @@
 body {
   font-family: 'Poppins', sans-serif;
   height: 100vh;
+  background: url('../src/images/photo-1517971071642-34a2d3ecc9cd.avif');
 }
 
 a {
@@ -41,6 +42,7 @@ h3 {
   margin: 0 auto;
   padding: 0 20px;
   text-align: center;
+  color:rgb(50, 50, 235);
 }
 
 .header {
@@ -50,6 +52,7 @@ h3 {
   padding: 20px 0;
   border-bottom: 1px solid #e6e6e6;
   margin-bottom: 60px;
+  background-color: #505966;
 }
 
 .header ul {
@@ -68,7 +71,8 @@ h3 {
 }
 
 .header ul li a:hover {
-  color: #777;
+  color: rgb(41, 36, 36);
+
 }
 
 .header ul li a svg {
@@ -83,7 +87,7 @@ h3 {
 }
 
 .heading p {
-  color: #828282;
+  color: #b65e5e;
 }
 
 .goals {
