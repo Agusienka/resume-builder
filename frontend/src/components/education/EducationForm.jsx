@@ -146,7 +146,7 @@ function EducationForm() {
           </div>
           <div className="form-group">
             <button type="submit" className="btn btn-block">
-              <Link to="/ed">Submit</Link>
+              <Link to="/forms">Submit</Link>
             </button>
           </div>
         </form>

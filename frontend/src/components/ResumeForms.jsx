@@ -1,14 +1,17 @@
 import { Link } from "react-router-dom";
 import ResumeData from "./ResumeData";
-import {useSelector} from "react"
+import {useSelector} from "react-redux"
 
- function ResumeForms() {
+export default function ResumeForms() {
 
-  const {user} = useSelector((state)=> state.auth)
+  const { educations } = useSelector(
+    (state) => state.educations
+  );
+  const degree = educations.degree
 
   return (
     <>
-      <h1 class='rName'>{user.firstName}</h1>
+      <h1 class='rName'>{degree}</h1>
       <p class='rEmail'>user@user.com</p>
       <p class='rPhone'>123-456-7890</p>
       <hr></hr>
@@ -50,5 +53,3 @@ import {useSelector} from "react"
           <Link to="/extra">Extras Form</Link>
         </h1>
       </div>*/
-
-      export default ResumeForms
