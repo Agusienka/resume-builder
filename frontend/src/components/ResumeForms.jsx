@@ -9,7 +9,6 @@ export default function ResumeForms() {
   const extra = JSON.parse(localStorage.getItem("user_extra_details"));
   const personal = JSON.parse(localStorage.getItem("user_personal_details"));
 
-  console.log("returned data", education);
 
   return (
     <>
