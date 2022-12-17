@@ -8,15 +8,16 @@ export default function ResumeForms() {
   const experience = JSON.parse(localStorage.getItem("user_experience_details"));
   const extra = JSON.parse(localStorage.getItem("user_extra_details"));
   const personal = JSON.parse(localStorage.getItem("user_personal_details"));
+  const { user } = useSelector((state) => state.auth)
 
 
   return (
     <>
     {
       {education, experience, extra, personal} ? <div>
-<h1 class='rName'>User</h1>
-      <p class='rEmail'>user@user.com</p>
-      <p class='rPhone'>123-456-7890</p>
+<h1 class='rName'>(user.firstName) (user.lastName)</h1>
+      <p class='rEmail'>(user.email)</p>
+      <p class='rPhone'>(user.phone)</p>
       <p>{personal.state}, {personal.city}</p>
       <p>{personal.linkedIn} {personal.gitHub}</p>
       <hr></hr>
