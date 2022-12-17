@@ -145,7 +145,7 @@ if (isLoading) {
         </div>
         <div className='form-group'>
           <button type='submit' className='btn btn-block'>
-            Submit
+          Add
           </button>
         </div>
       </form>
