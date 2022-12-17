@@ -11,7 +11,8 @@ const createPersonal = async (personalData, token) => {
   }
 
   const response = await axios.post(API_URL, personalData, config)
-
+  localStorage.setItem("user_personal_details", JSON.stringify(response.data))
+  window.location.href = "/forms";
   return response.data
 }
 

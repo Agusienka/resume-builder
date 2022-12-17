@@ -57,6 +57,7 @@ function PersonalForm() {
     console.log(personalData, 'personal form dispatching ');
     return () => {
       dispatch(reset());
+      navigate("/forms")
     };
   };
   if (isLoading) {
@@ -121,7 +122,7 @@ function PersonalForm() {
           </div>
           <div className="form-group">
             <button type="submit" className="btn btn-block">
-            <Link to='/resumeforms'>Submit</Link>
+            Submit
             </button>
           </div>
         </form>

@@ -59,7 +59,7 @@ function EducationForm() {
       endedAt,
     };
     dispatch(createEducation(educationData));
-    console.log(educationData, "on submit") //o
+    console.log(educationData, "on submit") 
     return () => {
       dispatch(reset());
       navigate("/forms")

@@ -11,7 +11,8 @@ const createExtra = async (extraData, token) => {
   }
 
   const response = await axios.post(API_URL, extraData, config)
-
+  localStorage.setItem("user_extra_details", JSON.stringify(response.data))
+  window.location.href = "/forms";
   return response.data
 }
 

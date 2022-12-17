@@ -5,33 +5,36 @@ import {useSelector} from "react-redux"
 export default function ResumeForms() {
 
   const education = JSON.parse(localStorage.getItem("user_education_details"));
-
-  // const { educations } = useSelector(
-  //   (state) => state.educations
-  // );
+  const experience = JSON.parse(localStorage.getItem("user_experience_details"));
+  const extra = JSON.parse(localStorage.getItem("user_extra_details"));
+  const personal = JSON.parse(localStorage.getItem("user_personal_details"));
 
   console.log("returned data", education);
 
   return (
     <>
     {
-      education ? <div>
-<h1 class='rName'>{education.degree}</h1>
+      {education, experience, extra, personal} ? <div>
+<h1 class='rName'>User</h1>
       <p class='rEmail'>user@user.com</p>
       <p class='rPhone'>123-456-7890</p>
+      <p>{personal.state}, {personal.city}</p>
+      <p>{personal.linkedIn} {personal.gitHub}</p>
       <hr></hr>
       <h3>Professional Experience</h3>
-      <p>Company Inc.</p>
-      <p>(March 2022-December 2022)</p>
-      <ul>Learned how to be a good worker</ul>
-      <ul>Learned how to listen to boss</ul>
+      <p>{experience.companyName},{experience.jobTitle}, {experience.location}</p>
+      <p>({experience.startedAt} until {experience.endedAt})</p>
+      <ul>{experience.jobDescription}</ul>
       <h3>Education</h3>
-      <p>College University</p>
-      <p>(GPA 3.5, Graduated June 2016)</p>
+      <p>{education.schoolName}</p>
+      <p>({education.degree})</p>
+      <p>{education.degreMajor}</p>
+      <p>{education.startedAt}</p>
+      <p>{education.endedAt}</p>
       <p>Valley High School</p>
-      <p>(GPA 3.0, Graduated May 2020)</p>
+      <p>{extra.gpa}</p>
       <h3>Proficiencies</h3>
-      <ul>Proficient in Excel</ul>
+      <ul>{extra.courseWork}</ul>
       <ul>Proficient in VSCode</ul>
       <ul>Proficient in People Skills</ul>
       <hr></hr>

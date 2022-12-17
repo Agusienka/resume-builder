@@ -11,7 +11,8 @@ const createExperience = async (experienceData, token) => {
   }
 
   const response = await axios.post(API_URL, experienceData, config)
-
+  localStorage.setItem("user_experience_details", JSON.stringify(response.data))
+  window.location.href = "/forms";
   return response.data
 }
 
