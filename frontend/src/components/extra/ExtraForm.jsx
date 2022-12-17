@@ -38,7 +38,7 @@ function ExtraForm() {
       [e.target.name]: e.target.value,
       
     }));
-    console.log(extras)
+
   };
 
 
@@ -54,6 +54,7 @@ function ExtraForm() {
 
     return () => {
       dispatch(reset());
+      navigate("/forms")
     };
   };
   if (isLoading) {
@@ -105,7 +106,7 @@ function ExtraForm() {
           </div>
           <div className="form-group">
             <button type="submit" className="btn btn-block">
-              <Link to="/exdisp">Submit</Link>
+              Submit
             </button>
           </div>
         </form>

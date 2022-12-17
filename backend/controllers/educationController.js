@@ -32,6 +32,8 @@ const setEducation = asyncHandler(async (req, res) => {
     user: req.user.id,
   });
 
+  console.log("education created")
+
   res.status(200).json(education);
 });
 

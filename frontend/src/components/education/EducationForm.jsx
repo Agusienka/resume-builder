@@ -59,9 +59,10 @@ function EducationForm() {
       endedAt,
     };
     dispatch(createEducation(educationData));
-    console.log(educationData, "on submit") //o
+    console.log(educationData, "on submit") 
     return () => {
       dispatch(reset());
+      navigate("/forms")
     };
   };
   if (isLoading) {
@@ -146,7 +147,7 @@ function EducationForm() {
           </div>
           <div className="form-group">
             <button type="submit" className="btn btn-block">
-              <Link to="/ed">Submit</Link>
+              Submit
             </button>
           </div>
         </form>

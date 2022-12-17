@@ -46,9 +46,6 @@ const onChange = (e) => {
 const onSubmit = (e) => {
   e.preventDefault()
 
-  dispatch(createExperience(formData))
-  setFormData('')
-
   const experienceData = {
     jobTitle,
     companyName,
@@ -59,7 +56,13 @@ const onSubmit = (e) => {
 
   }
   dispatch(createExperience(experienceData))
+  console.log(experienceData, "on submit") //o
+  return () => {
+    dispatch(reset());
+    navigate("/forms")
 }
+}
+
 if (isLoading) {
   return <Spinner />
 }
@@ -143,7 +146,7 @@ if (isLoading) {
         </div>
         <div className='form-group'>
           <button type='submit' className='btn btn-block'>
-          <Link to='/resumeforms'>Submit</Link>
+          Submit
           </button>
         </div>
       </form>
