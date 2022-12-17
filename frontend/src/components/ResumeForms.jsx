@@ -4,14 +4,19 @@ import {useSelector} from "react-redux"
 
 export default function ResumeForms() {
 
-  const { educations } = useSelector(
-    (state) => state.educations
-  );
-  const degree = educations.degree
+  const education = JSON.parse(localStorage.getItem("user_education_details"));
+
+  // const { educations } = useSelector(
+  //   (state) => state.educations
+  // );
+
+  console.log("returned data", education);
 
   return (
     <>
-      <h1 class='rName'>{degree}</h1>
+    {
+      education ? <div>
+<h1 class='rName'>{education.degree}</h1>
       <p class='rEmail'>user@user.com</p>
       <p class='rPhone'>123-456-7890</p>
       <hr></hr>
@@ -31,6 +36,9 @@ export default function ResumeForms() {
       <ul>Proficient in People Skills</ul>
       <hr></hr>
       <h3>References</h3>  
+      </div>: <h4>No available information currently</h4>
+    }
+      
     </>
   );
 }

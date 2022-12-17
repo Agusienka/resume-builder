@@ -4,15 +4,23 @@ const dotenv = require("dotenv").config();
 const port = process.env.PORT || 5000;
 const {errorHandler} = require ('./middleware/errorMiddleware')
 const connectDB = require('./config/db')
-
+const cors = require("cors");
 
 
 connectDB()
 
 const app = express();
 
+var corsOptions = {
+  origin: '*',
+  methods: 'GET,POST,PUT,HEAD,DELETE,PATCH',
+  preflightContinue: true,
+  optionSuccessStatus: 204
+}
+
 app.use(express.json())
-app.use(express.urlencoded({extended: false}))
+app.use(express.urlencoded({extended: false}));
+app.use(cors(corsOptions));
 
 app.use('/api/goals', require('./routes/goalRoutes'))
 app.use('/api/users', require('./routes/userRoutes'))

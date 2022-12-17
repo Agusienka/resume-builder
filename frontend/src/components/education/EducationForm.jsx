@@ -62,6 +62,7 @@ function EducationForm() {
     console.log(educationData, "on submit") //o
     return () => {
       dispatch(reset());
+      navigate("/forms")
     };
   };
   if (isLoading) {
@@ -146,7 +147,7 @@ function EducationForm() {
           </div>
           <div className="form-group">
             <button type="submit" className="btn btn-block">
-              <Link to="/forms">Submit</Link>
+              Submit
             </button>
           </div>
         </form>
