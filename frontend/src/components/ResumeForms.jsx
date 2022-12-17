@@ -15,9 +15,9 @@ export default function ResumeForms() {
     <>
     {
       {education, experience, extra, personal} ? <div>
-<h1 class='rName'>(user.firstName) (user.lastName)</h1>
-      <p class='rEmail'>(user.email)</p>
-      <p class='rPhone'>(user.phone)</p>
+<h1 class='rName'>{user.firstName} {user.lastName}</h1>
+      <p class='rEmail'>{user.email}</p>
+      <p class='rPhone'>{user.phone}</p>
       <p>{personal.state}, {personal.city}</p>
       <p>{personal.linkedIn} {personal.gitHub}</p>
       <hr></hr>
