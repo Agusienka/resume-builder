@@ -242,15 +242,48 @@ code {
   --speed: 500ms; 
 }
 
-ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.rHeader {
+  vertical-align: top;
 }
 
-a {
-  color: var(--text-color);
-  text-decoration: none;;
+.rName {
+  text-align: left;
+  float: left;
+}
+
+.rContactInfo {
+  float: right;
+}
+
+.rBody {
+  text-align: left;
+}
+
+.rtab {
+  text-indent: 10%;
+  font-weight: bold;
+}
+
+.rbullet {
+  text-indent: 20%;
+}
+
+.rRef1 {
+  padding: 70px;
+}
+
+.rRef2 {
+  padding: 70px;
+}
+
+.rRef3 {
+  padding: 70px;
+}
+
+.rReference {
+  vertical-align: top;
+  display: flex;
+  justify-content: center;
 }
 
 /* Top Navigation Bar */
