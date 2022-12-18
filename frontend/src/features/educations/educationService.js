@@ -12,6 +12,7 @@ const createEducation = async (educationData, token) => {
     },
   }
   const response = await axios.post(API_URL, educationData, config)
+  console.log("responseee", response.data)
   localStorage.setItem("user_education_details", JSON.stringify(response.data))
   window.location.href = "/forms";
   return response.data
