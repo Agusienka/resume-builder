@@ -35,7 +35,7 @@ export default function ResumeForms() {
   return (
     <>
     {
-      education && experience && extra && personal ? <div ref = {pdfState}>
+      education && experience && extra && personal ? <div ref = {pdfState} className = "resume">
 <h1 class='rName'>{user.firstName} {user.lastName}</h1>
       <p class='rEmail'>{user.email}</p>
       <p class='rPhone'>{user.phone}</p>
@@ -63,8 +63,8 @@ export default function ResumeForms() {
       </div>: <h4>No available information currently</h4>
     }
     <div>
-      <button onClick={generatePdf}>Export to PDf</button>
-      <button onClick={clearData}>Clear data</button>
+      <button className='btn btn-print' onClick={generatePdf}>Export to PDf</button>
+      <button className='btn btn-print' onClick={clearData}>Clear data</button>
     </div>
     </>
   );
