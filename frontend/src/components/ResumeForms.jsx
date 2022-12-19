@@ -37,27 +37,26 @@ export default function ResumeForms() {
     {
       education && experience && extra && personal ? <div ref = {pdfState} className = "resume">
 <h1 class='rName'>{user.firstName} {user.lastName}</h1>
-      <p class='rEmail'>{user.email}</p>
-      <p class='rPhone'>{user.phone}</p>
-      <p>{personal.state}, {personal.city}</p>
-      <p>{personal.linkedIn} {personal.gitHub}</p>
+<p class='rContactInfo'>{user.email}</p>
+      <p class='rContactInfo'>{user.phone}</p>
+      <p class='rContactInfo'>{personal.state}, {personal.city}</p>
+      <p class='rContactInfo'>{personal.linkedIn} {personal.gitHub}</p>
       <hr></hr>
+      <div class='rBody'>
       <h3>Professional Experience</h3>
-      <p>{experience.companyName},{experience.jobTitle}, {experience.location}</p>
-      <p>({experience.startedAt} until {experience.endedAt})</p>
-      <ul>{experience.jobDescription}</ul>
+      <p class='rtab'>{experience.companyName},{experience.jobTitle}, {experience.location}</p>
+      <p class='rtab'>({experience.startedAt} until {experience.endedAt})</p>
+      <ul class='rbullet'>{experience.jobDescription}</ul>
       <h3>Education</h3>
-      <p>{education.schoolName}</p>
-      <p>({education.degree})</p>
-      <p>{education.degreMajor}</p>
-      <p>{education.startedAt}</p>
-      <p>{education.endedAt}</p>
-      <p>Valley High School</p>
-      <p>{extra.gpa}</p>
+      <p class='rtab'>{education.schoolName}</p>
+      <p class='rtab'>({education.degree})</p>
+      <p class='rtab'>{education.degreMajor}</p>
+      <p class='rtab'>{education.startedAt}</p>
+      <p class='rtab'>{education.endedAt}</p>
+      <p class='rtab'>{extra.gpa}</p>
       <h3>Proficiencies</h3>
-      <ul>{extra.courseWork}</ul>
-      <ul>Proficient in VSCode</ul>
-      <ul>Proficient in People Skills</ul>
+      <ul class='rtab'>{extra.courseWork}</ul>
+      </div>
       <hr></hr>
       <h3>References</h3>  
       </div>: <h4>No available information currently</h4>
