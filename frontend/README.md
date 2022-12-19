@@ -7,7 +7,7 @@ GitHub Repo: https://github.com/Agusienka/resume-builder.git
 
 
 #Description:
-User be able to build a resume using our best template. User be able to add goal to it. Than user should register using some basic information and than user can add education, experience, and references. Once it is submit it will show a resume.
+User be able to build a resume using template. User be able to add goal to it. Than user should register using some basic information and than user should add education, experience, and references. Once it is submit it will show a resume.
 
 
 <h3 align="left">Languages and Tools:</h3>
@@ -72,5 +72,5 @@ MONGODB
 
 #Acknowledgement:
 
-This project was inspired by job serach and trying to make best resume using diffrent tempaltes. We used You Tube tutorial to make this project. 
-Many thanks to our instructor who helped us whenever we are stuck.
+This project was inspired by job serach and trying to make best resume using diffrent tempaltes. We used You Tube tutorial and google to make this project. 
+Many thanks to our instructor who helped us whenever needed.
