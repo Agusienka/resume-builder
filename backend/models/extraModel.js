@@ -21,7 +21,7 @@ const extraSchema =  new mongoose.Schema(
       type: String,
       required: [false, "Please provide relevant academic honors "],
     },
-    coursework: {
+    courseWork: {
         type: String,
         required: [false, "Please provide relevant coursework."],
     },

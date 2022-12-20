@@ -253,6 +253,42 @@ a {
   text-decoration: none;;
 }
 
+.rHeader {
+  vertical-align: top;
+}
+
+.rName {
+  text-align: left;
+  float: left;
+}
+
+.rRight {
+  float: right;
+  vertical-align: top;
+}
+
+.rBody {
+  text-align: left;
+}
+
+.rtab {
+  text-indent: 6%;
+  font-weight: bold;
+}
+
+.rbullet {
+  text-indent: 12%;
+}
+
+.rItalic {
+  font-style: italic;
+  text-indent: 6%;
+}
+
+.resume {
+  background-color: white;
+  color: black;
+}
 /* Top Navigation Bar */
 
 /* <nav> */

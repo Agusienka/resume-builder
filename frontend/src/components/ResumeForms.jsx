@@ -38,28 +38,45 @@ export default function ResumeForms() {
     {
       education && experience && extra && personal ? <div ref = {pdfState} className = "resume">
 <h1 class='rName'>{user.firstName} {user.lastName}</h1>
-<p class='rContactInfo'>{user.email}</p>
-      <p class='rContactInfo'>{user.phone}</p>
-      <p class='rContactInfo'>{personal.state}, {personal.city}</p>
-      <p class='rContactInfo'>{personal.linkedIn} {personal.gitHub}</p>
+      <div class='rRight'>
+      <p>{user.email}</p>
+      <p>{user.phone}</p>
+      <p>{personal.city}, {personal.state}</p>
+      <p>{personal.linkedIn} {personal.gitHub}</p>
+      </div>
+      <br />
+      <br />
+      <br />
+      <hr></hr>
       <hr></hr>
       <div class='rBody'>
-      <h3>Professional Experience</h3>
-      <p class='rtab'>{experience.companyName},{experience.jobTitle}, {experience.location}</p>
-      <p class='rtab'>({experience.startedAt} until {experience.endedAt})</p>
-      <ul class='rbullet'>{experience.jobDescription}</ul>
+      <br />
+<div class='rExperience'>
+  <h3>Professional Experience</h3>
+      <p class='rRight'>({experience.startedAt} until {experience.endedAt})</p>
+      <p class='rtab'>{experience.companyName}</p>
+      <p class='rItalic'>{experience.jobTitle} in {experience.location}</p>
+      <ul class='rbullet'>-{experience.jobDescription}</ul>
+</div>
+      <br />
+      <br />
+<div class='rEducation'>
       <h3>Education</h3>
+      <p class='rRight'>(Enrolled on {education.startedAt}, Graduated on {education.endedAt})</p>
       <p class='rtab'>{education.schoolName}</p>
-      <p class='rtab'>({education.degree})</p>
-      <p class='rtab'>{education.degreMajor}</p>
-      <p class='rtab'>{education.startedAt}</p>
-      <p class='rtab'>{education.endedAt}</p>
+      <p class='rItalic'>({education.degree} in {education.degreeMajor})</p>
       <p class='rtab'>{extra.gpa}</p>
+</div>
+      <br />
+      <br />
+<div class='rSkills'>
       <h3>Proficiencies</h3>
-      <ul class='rtab'>{extra.courseWork}</ul>
+      <ul class='rItalic'>{extra.courseWork}</ul>
       </div>
+</div>
+      <br />
+      <br />
       <hr></hr>
-      <h3>References</h3>  
       </div>: <h4>No available information currently</h4>
     }
     <div>
