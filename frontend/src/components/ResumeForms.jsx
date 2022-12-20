@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import ResumeData from "./ResumeData";
 import {useSelector} from "react-redux";
@@ -14,6 +15,7 @@ export default function ResumeForms() {
   const ref = createRef();
   const pdfState = useRef(null);
 
+
   const clearData = () => {
     localStorage.clear();
     window.location.reload();
@@ -24,6 +26,20 @@ export default function ResumeForms() {
       format: 'a4',
       unit: 'px'
     })
+
+=======
+
+  const clearData = () => {
+    localStorage.clear();
+    window.location.reload();
+  }
+
+  const generatePdf = () => {
+    const doc = new jsPDF({
+      format: 'a4',
+      unit: 'px'
+    })
+
 
     doc.html(pdfState.current, {
       async callback(doc) {
@@ -37,6 +53,7 @@ export default function ResumeForms() {
     {
       education && experience && extra && personal ? <div ref = {pdfState} className = "resume">
 <h1 class='rName'>{user.firstName} {user.lastName}</h1>
+
       <div class='rRight'>
       <p>{user.email}</p>
       <p>{user.phone}</p>
@@ -75,6 +92,28 @@ export default function ResumeForms() {
 </div>
       <br />
       <br />
+
+<p class='rContactInfo'>{user.email}</p>
+      <p class='rContactInfo'>{user.phone}</p>
+      <p class='rContactInfo'>{personal.state}, {personal.city}</p>
+      <p class='rContactInfo'>{personal.linkedIn} {personal.gitHub}</p>
+      <hr></hr>
+      <div class='rBody'>
+      <h3>Professional Experience</h3>
+      <p class='rtab'>{experience.companyName},{experience.jobTitle}, {experience.location}</p>
+      <p class='rtab'>({experience.startedAt} until {experience.endedAt})</p>
+      <ul class='rbullet'>{experience.jobDescription}</ul>
+      <h3>Education</h3>
+      <p class='rtab'>{education.schoolName}</p>
+      <p class='rtab'>({education.degree})</p>
+      <p class='rtab'>{education.degreMajor}</p>
+      <p class='rtab'>{education.startedAt}</p>
+      <p class='rtab'>{education.endedAt}</p>
+      <p class='rtab'>{extra.gpa}</p>
+      <h3>Proficiencies</h3>
+      <ul class='rtab'>{extra.courseWork}</ul>
+      </div>
+
       <hr></hr>
       </div>: <h4>No available information currently</h4>
     }
@@ -122,4 +161,8 @@ export default function ResumeForms() {
         <h1 className="heading">
           <Link to="/extra">Extras Form</Link>
         </h1>
+
       </div>*/
+
+      </div>*/
+
