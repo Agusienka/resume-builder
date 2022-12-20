@@ -14,7 +14,7 @@ import ExDisplay from "./components/experience/ExDisplay";
 import ResumeForms from "./components/ResumeForms";
 import ExtraDisplay from "./components/extra/ExtraDisplay";
 import ExtraForm from "./components/extra/ExtraForm";
-// import ResumeData from "./components/ResumeData";
+import ResumeData from "./components/ResumeData";
 // import useFetchJobs from "./components/muse/useFetchJobs";
 // import JobSearch from "./components/muse/JobSearch";
 // import SearchForm from "./components/muse/SearchForm";
@@ -25,6 +25,7 @@ function App() {
       <Router>
         <div className="container">
           <Header />
+         
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/login" element={<Login />} />
@@ -38,9 +39,9 @@ function App() {
             <Route path="/forms" element={<ResumeForms />} />
             <Route path="/exdisp" element={<ExtraDisplay />} />
             <Route path="/extra" element={<ExtraForm />} />
-            {/* <Route path="/resumeforms" element={<ResumeData />} /> */}
-            {/* <Route path="/jobs" element={<JobSearch />} />
-            <Route path="/searchform" element={<SearchForm />} /> */}
+            <Route path="/resume-data" element={<ResumeData />} />
+         
+         
           </Routes>
         </div>
       </Router>

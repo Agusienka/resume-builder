@@ -144,6 +144,6 @@ export default function ResumeData() {
   )
 
   function newFunction(newLocal) {
-    return <Link to={newLocal}>Submit</Link>;
+    return <Link to={newLocal}>Form</Link>;
   }
 }

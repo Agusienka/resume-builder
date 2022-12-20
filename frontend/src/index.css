@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
+
 * {
   margin: 0;
   padding: 0;
@@ -9,7 +10,12 @@
 body {
   font-family: 'Poppins', sans-serif;
   height: 100vh;
-  background: url('../src/images/photo-1517971071642-34a2d3ecc9cd.avif');
+  background: url('https://images.unsplash.com/photo-1518655048521-f130df041f66?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80');
+  /* background: url() no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover; */
+  background-size: cover;
 }
 
 a {
@@ -19,6 +25,7 @@ a {
 
 p {
   line-height: 1.7;
+  color: rgb(132, 120, 120);
 }
 
 ul {
@@ -34,15 +41,21 @@ h2,
 h3 {
   font-weight: 600;
   margin-bottom: 10px;
+  color: rgb(126, 116, 116);
 }
-
+.title{
+  color: rgb(99, 92, 92);
+}
+.notes{
+  color: rgb(74, 57, 57);
+}
 .container {
   width: 100%;
   max-width: 960px;
   margin: 0 auto;
   padding: 0 20px;
   text-align: center;
-  color:rgb(50, 50, 235);
+  color:rgb(123, 123, 143);
 }
 
 .header {
@@ -50,15 +63,17 @@ h3 {
   justify-content: space-between;
   align-items: center;
   padding: 20px 0;
-  border-bottom: 1px solid #e6e6e6;
+  border-bottom: 1px ;
   margin-bottom: 60px;
-  background-color: #505966;
+  background-color: none;
+  color: black;
 }
 
 .header ul {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  color:#000
 }
 
 .header ul li {
@@ -71,7 +86,7 @@ h3 {
 }
 
 .header ul li a:hover {
-  color: rgb(41, 36, 36);
+  color: black;
 
 }
 
@@ -87,7 +102,7 @@ h3 {
 }
 
 .heading p {
-  color: #b65e5e;
+  color: black;
 }
 
 .goals {
@@ -111,17 +126,23 @@ h3 {
   border: none;
   background: none;
 }
-
+.logo{
+  color: black;
+}
 .form,
 .content {
   width: 70%;
   margin: 0 auto;
 }
-
+.link{
+  color: rgb(84, 73, 73);
+}
 .form-group {
   margin-bottom: 10px;
 }
-
+.li {
+  color: black;
+}
 .form-group input,
 .form-group textarea,
 .form-group select {

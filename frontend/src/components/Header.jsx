@@ -6,6 +6,7 @@ import { logout, reset } from '../features/auth/authSlice'
 
 
 
+
 function Header() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -20,27 +21,27 @@ function Header() {
   return (
     <header className='header'>
       <div className='logo '>
-        <Link to='/'>GoalSetter</Link>
+        <Link to='/'className='link'>Notes</Link>
       </div>
    
       <ul>
         {user ? (
           <>
            <li>
-            <Link to='/jobs'> Job search
+            <Link to='/' className='link'> Dashboard
             </Link>
           </li>
           <li>
-            <Link to='/resumeforms'> Resume data
+            <Link to='/resume-data' className='link'> Resume data
             </Link>
           </li>
 
           <li>
-            <Link to='/forms'> Forms
+            <Link to='/forms' className='link'> Resume Forms
             </Link>
           </li>
           <li>
-            <button className='btn' onClick={onLogout}>
+            <button className='btn link' onClick={onLogout}>
               <FaSignOutAlt /> Logout
             </button>
             </li>

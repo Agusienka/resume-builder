@@ -15,6 +15,7 @@ export default function ResumeForms() {
   const ref = createRef();
   const pdfState = useRef(null);
 
+
   const clearData = () => {
     localStorage.clear();
     window.location.reload();
@@ -25,6 +26,20 @@ export default function ResumeForms() {
       format: 'a4',
       unit: 'px'
     })
+
+=======
+
+  const clearData = () => {
+    localStorage.clear();
+    window.location.reload();
+  }
+
+  const generatePdf = () => {
+    const doc = new jsPDF({
+      format: 'a4',
+      unit: 'px'
+    })
+
 
     doc.html(pdfState.current, {
       async callback(doc) {
@@ -38,6 +53,46 @@ export default function ResumeForms() {
     {
       education && experience && extra && personal ? <div ref = {pdfState} className = "resume">
 <h1 class='rName'>{user.firstName} {user.lastName}</h1>
+
+      <div class='rRight'>
+      <p>{user.email}</p>
+      <p>{user.phone}</p>
+      <p>{personal.city}, {personal.state}</p>
+      <p>{personal.linkedIn} {personal.gitHub}</p>
+      </div>
+      <br />
+      <br />
+      <br />
+      <hr></hr>
+      <hr></hr>
+      <div class='rBody'>
+      <br />
+<div class='rExperience'>
+  <h3>Professional Experience</h3>
+      <p class='rRight'>({experience.startedAt} until {experience.endedAt})</p>
+      <p class='rtab'>{experience.companyName}</p>
+      <p class='rItalic'>{experience.jobTitle} in {experience.location}</p>
+      <ul class='rbullet'>-{experience.jobDescription}</ul>
+</div>
+      <br />
+      <br />
+<div class='rEducation'>
+      <h3>Education</h3>
+      <p class='rRight'>(Enrolled on {education.startedAt}, Graduated on {education.endedAt})</p>
+      <p class='rtab'>{education.schoolName}</p>
+      <p class='rItalic'>({education.degree} in {education.degreeMajor})</p>
+      <p class='rtab'>{extra.gpa}</p>
+</div>
+      <br />
+      <br />
+<div class='rSkills'>
+      <h3>Proficiencies</h3>
+      <ul class='rItalic'>{extra.courseWork}</ul>
+      </div>
+</div>
+      <br />
+      <br />
+
 <p class='rContactInfo'>{user.email}</p>
       <p class='rContactInfo'>{user.phone}</p>
       <p class='rContactInfo'>{personal.state}, {personal.city}</p>
@@ -58,8 +113,8 @@ export default function ResumeForms() {
       <h3>Proficiencies</h3>
       <ul class='rtab'>{extra.courseWork}</ul>
       </div>
+
       <hr></hr>
-      <h3>References</h3>  
       </div>: <h4>No available information currently</h4>
     }
     <div>
@@ -106,4 +161,8 @@ export default function ResumeForms() {
         <h1 className="heading">
           <Link to="/extra">Extras Form</Link>
         </h1>
+
       </div>*/
+
+      </div>*/
+
