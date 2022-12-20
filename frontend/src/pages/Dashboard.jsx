@@ -51,7 +51,7 @@ function Dashboard() {
             <Link to='/experience'>Click here to start creating your experience form</Link>  
             </button> */}
         </div>
-        <p>Goals Dashboard</p>
+        <p >Resume Builders</p>
 
       </section>
 
@@ -65,7 +65,7 @@ function Dashboard() {
             ))}
           </div>
         ) : (
-          <h3>You have not set any goals</h3>
+          <h3>You have no notes saved</h3>
         )}
       </section>
     </>
